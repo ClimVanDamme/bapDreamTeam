@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import styles from "./App.module.css";
 
-import Home from "./Home";
-import Admin from "./Admin";
-import About from "./About";
-
 import { ROUTES } from "../constants";
-import Sporza from "./Sporza";
+
+//import containers
+import Home from "./Home";
+import Belofte from "./Belofte";
+import Supporterslied from "./Supporterslied";
+import OverzichtSupporterslied from "./OverzichtSupporterslied";
+import AudioInput from "./AudioInput";
 
 class App extends Component {
   render() {
@@ -15,9 +17,18 @@ class App extends Component {
       <main className={styles.layout}>
         <Switch>
           <Route path={ROUTES.home} exact strict component={Home} />
-          <Route path={ROUTES.admin} component={Admin} />
-          <Route path={ROUTES.about} component={About} />
-          <Route path={ROUTES.sporza} exact strict component={Sporza} />
+          <Route path={ROUTES.belofte} exact strict component={Belofte} />
+          <Route
+            path={ROUTES.supporterslied}
+            exact
+            strict
+            component={Supporterslied}
+          />
+          <Route
+            path={ROUTES.overzichtSupporterslied}
+            component={OverzichtSupporterslied}
+          />
+          <Route path={ROUTES.audioInput} component={AudioInput} />
         </Switch>
       </main>
     );

@@ -1,6 +1,8 @@
 export const ROUTES = {
   home: `/`,
-  admin: `/admin`,
-  about: `/over-ons`,
-  sporza: `/sporza`
+  belofte: `/belofte`,
+  sporza: `/sporza`,
+  supporterslied: `/supporterslied`,
+  overzichtSupporterslied: `/supporterslied/overzicht`,
+  audioInput: `/supporterslied/audioInput`
 };

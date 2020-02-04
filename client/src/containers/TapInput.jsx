@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
 
-const TapInput = ({ tapwedstrijdStore }) => {
+function TapInput({ max, tapwedstrijdStore }) {
 	let {
 		aantalTaps,
 		addTap,
@@ -12,12 +12,17 @@ const TapInput = ({ tapwedstrijdStore }) => {
 		initTaps,
 		stopTimer,
 		maxTaps,
-		resetTimer,
-		isCompleted,
-		finalTime
+		resetTimer
 	} = tapwedstrijdStore;
 
-	const discipline = 10;
+	useEffect(() => {
+		resetTimer();
+		return () => {
+			resetTimer();
+		};
+	}, []);
+
+	const discipline = max;
 
 	const Instructie = () => {
 		if (aantalTaps === 0) {
@@ -49,8 +54,12 @@ const TapInput = ({ tapwedstrijdStore }) => {
 	};
 
 	return (
-		<>
-			<div>{timePassed} sec</div>
+		<section
+			style={{
+				width: 'max-content',
+				margin: '0 auto'
+			}}
+		>
 			<div
 				onClick={() => {
 					if (isRunning === false) {
@@ -62,8 +71,6 @@ const TapInput = ({ tapwedstrijdStore }) => {
 							if (aantalTaps + 1 === maxTaps) {
 								console.log('max bereikt');
 								isRunning = false;
-								isCompleted = true;
-								console.log(maxTaps);
 								stopTimer();
 							}
 						}
@@ -79,6 +86,7 @@ const TapInput = ({ tapwedstrijdStore }) => {
 			>
 				<p
 					style={{
+						userSelect: 'none',
 						display: 'flex',
 						justifyContent: 'center',
 						alignItems: 'center',
@@ -90,24 +98,58 @@ const TapInput = ({ tapwedstrijdStore }) => {
 						border: 'solid white 0.1rem'
 					}}
 				>
-					{aantalTaps}
+					{timePassed} sec
 				</p>
-				<Instructie />
+				<div
+					style={{
+						margin: '5rem auto'
+					}}
+				>
+					<div
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							color: 'white'
+						}}
+					>
+						<p
+							style={{
+								userSelect: 'none',
+								fontSize: '2rem'
+							}}
+						>
+							{aantalTaps}
+						</p>
+						<Instructie />
+					</div>
+				</div>
 			</div>
-			<button
-				onClick={() => {
-					console.log('reset clicked');
-					resetTimer();
-					aantalTaps = 0;
-					isRunning = false;
-					isCompleted = false;
-					maxTaps = 0;
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'center'
 				}}
 			>
-				reset
-			</button>
-		</>
+				<button
+					style={{
+						userSelect: 'none',
+						width: 'min-content',
+						marginTop: '2rem'
+					}}
+					onClick={() => {
+						console.log('reset clicked');
+						resetTimer();
+						aantalTaps = 0;
+						isRunning = false;
+						maxTaps = 0;
+					}}
+				>
+					reset
+				</button>
+			</div>
+		</section>
 	);
-};
+}
 
 export default inject(`tapwedstrijdStore`)(observer(TapInput));

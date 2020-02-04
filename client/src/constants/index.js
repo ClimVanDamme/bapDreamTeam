@@ -2,11 +2,10 @@ export const ROUTES = {
 	home: `/`,
 	belofte: `/belofte`,
 	sporza: `/sporza`,
-	//
+	//supporterslied
 	supporterslied: `/supporterslied`,
 	overzichtSupporterslied: `/supporterslied/overzicht`,
 	audioInput: `/supporterslied/audioInput`,
-	//
-	tapWedstrijd: `/tapwedstrijd`,
-	tapInput: `/tapwedstrijd/tapInput`
+	//tapwedstrijd
+	tapWedstrijd: `/tapwedstrijd`
 };

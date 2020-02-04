@@ -20,8 +20,12 @@ class App extends Component {
 		return (
 			<main className={styles.layout}>
 				<Switch>
-					<Route path={ROUTES.home} exact strict component={Home} />
-					<Route path={ROUTES.belofte} exact strict component={Belofte} />
+					<Route exact path={ROUTES.home}>
+						<Home />
+					</Route>
+					<Route exact strict path={ROUTES.belofte}>
+						<Belofte />
+					</Route>
 					{/* supporterslied */}
 					<Route
 						path={ROUTES.supporterslied}
@@ -37,11 +41,19 @@ class App extends Component {
 					{/* tapwedstrijd */}
 					<Route
 						path={ROUTES.tapWedstrijd}
+						stict
 						exact
-						strict
 						component={TapWedstrijd}
 					/>
-					<Route path={`${ROUTES.tapInput}`} component={TapInput} />
+					<Route exact strict path={`${ROUTES.tapWedstrijd}/100`}>
+						<TapInput max={100} />
+					</Route>
+					<Route exact strict path={`${ROUTES.tapWedstrijd}/200`}>
+						<TapInput max={200} />
+					</Route>
+					<Route exact strict path={`${ROUTES.tapWedstrijd}/400`}>
+						<TapInput max={400} />
+					</Route>
 				</Switch>
 			</main>
 		);

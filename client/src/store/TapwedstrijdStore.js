@@ -16,13 +16,13 @@ class TapwedstrijdStore {
 
 	initTaps = amount => {
 		this.maxTaps = amount;
-		console.log(this.maxTaps);
 	};
 
 	resetTimer = () => {
 		this.aantalTaps = 0;
-		// this.timeNow = this.startTime;
+		this.timeNow = this.startTime;
 		this.stopTimer();
+		console.log(this.timePassed);
 	};
 
 	addTap = () => {
@@ -51,14 +51,14 @@ class TapwedstrijdStore {
 	};
 
 	get timePassed() {
-		let rawNumb = (parseFloat = (this.timeNow - this.startTime) / 1000);
+		let rawNumb = parseFloat(this.timeNow - this.startTime) / 1000;
 		let rounded = rawNumb.toFixed(1);
 		return rounded;
 	}
 
 	stopTimer = () => {
-		console.log('STOP THE TIMERRR!!');
 		if (this.isRunning === false) return;
+		console.log('STOP THE TIMERRR!!');
 		this.isRunning = false;
 		this.completed = true;
 		this.finalTime = this.timePassed;

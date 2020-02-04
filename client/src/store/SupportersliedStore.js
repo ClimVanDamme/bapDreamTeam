@@ -5,6 +5,9 @@ configure({ enforceActions: `observed` });
 class SupportersliedStore {
   layers = [];
   isRecording = false;
+  createdMediaRecorder;
+  audioLayers = [];
+  audioCurrent = [];
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -24,16 +27,37 @@ class SupportersliedStore {
       });
   };
 
-  startRecording = () => {
-    this.isRecording = true;
+  toggleRecording = () => {
+    this.isRecording = !this.isRecording;
+  };
+
+  setMediaRecorder = mediaRecorder => {
+    this.createdMediaRecorder = mediaRecorder;
+  };
+
+  createAudioFile = data => {
+    this.audioCurrent = [];
+    this.audioCurrent.push(URL.createObjectURL(new Blob(data)));
+    console.log(this.audioCurrent);
+  };
+
+  addAudioLayer = data => {
+    this.audioLayers.push(data);
   };
 }
 
 decorate(SupportersliedStore, {
   merge: action,
   layers: observable,
+  audioCurrent: observable,
+  audioLayers: observable,
   isRecording: observable,
-  startRecording: action
+  createdMediaRecorder: observable,
+  toggleRecording: action,
+  setMediaRecorder: action,
+  createAudioFile: action,
+  clearAudio: action,
+  addAudioLayer: action
 });
 
 export default SupportersliedStore;

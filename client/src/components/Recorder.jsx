@@ -1,22 +1,33 @@
 import React from "react";
 import { PropTypes, inject, observer } from "mobx-react";
 
+import { ROUTES } from "../constants";
+import { Link } from "react-router-dom";
+
 const Recorder = ({ supportersliedStore, layer }) => {
   const {
     createdMediaRecorder,
     audioCurrent,
-    addAudioLayer
+    addAudioLayer,
+    clearAudio,
+    merge,
+    autoStop,
+    resetTimeout
   } = supportersliedStore;
-  const player = React.createRef();
+
   const options = { mimeType: "audio/webm" };
   let recordedChunks = [];
 
   const stopRec = () => {
-    supportersliedStore.toggleRecording();
-    createdMediaRecorder.stop();
+    if (supportersliedStore.createdMediaRecorder.state === "recording") {
+      clearTimeout(autoStop);
+      supportersliedStore.toggleRecording();
+      supportersliedStore.createdMediaRecorder.stop();
+    }
   };
 
   const initiateRec = () => {
+    resetTimeout(setTimeout(stopRec, 5000));
     supportersliedStore.toggleRecording();
     navigator.mediaDevices
       .getUserMedia({ audio: true, video: false })
@@ -35,24 +46,57 @@ const Recorder = ({ supportersliedStore, layer }) => {
     supportersliedStore.setMediaRecorder(mediaRecorder);
   };
 
+  const inputAudio = React.createRef();
+
   return (
     <>
-      <h1>Neem hier je supporterslied op</h1>
-
-      {supportersliedStore.isRecording === true ? (
-        <button onClick={stopRec}>Stop</button>
-      ) : (
-        <button onClick={initiateRec}>Opnemen</button>
-      )}
+      <h1>Neem hier een audiolaag op</h1>
 
       {audioCurrent.length > 0 ? (
         <>
-          <button onClick={() => addAudioLayer(audioCurrent[0])}>
-            Volgende
-          </button>
+          {supportersliedStore.isRecording === true ? (
+            <button onClick={stopRec}>Stop</button>
+          ) : (
+            <>
+              <button onClick={initiateRec}>Opnieuw opnemem</button>
+              <Link to={ROUTES.overzichtSupporterslied}>
+                <button
+                  onClick={() => {
+                    addAudioLayer(audioCurrent[0]);
+                    clearAudio();
+                    merge();
+                  }}
+                >
+                  Laag toevoegen aan compositie
+                </button>
+              </Link>
+              <button
+                onClick={() => {
+                  inputAudio.current.play();
+                }}
+              >
+                Herbeluister
+              </button>
+            </>
+          )}
+          {audioCurrent.map(track => (
+            <audio
+              className="audioplayer"
+              src={track}
+              controls
+              ref={inputAudio}
+              key="currentLayer"
+            ></audio>
+          ))}
         </>
       ) : (
-        <p>Geen opname beschikbaar</p>
+        <>
+          {supportersliedStore.isRecording === true ? (
+            <button onClick={stopRec}>Stop</button>
+          ) : (
+            <button onClick={initiateRec}>Opnemen</button>
+          )}
+        </>
       )}
     </>
   );

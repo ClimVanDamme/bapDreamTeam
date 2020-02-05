@@ -26,7 +26,6 @@ class DrinkStore {
   };
 
   _addDrink = values => {
-    console.log(values);
     const drink = new Drink();
     drink.updateFromServer(values);
     runInAction(() => this.drinks.push(drink));

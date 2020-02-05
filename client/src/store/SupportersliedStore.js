@@ -1,4 +1,4 @@
-import { decorate, action, configure, observable } from "mobx";
+import { decorate, action, configure, observable, runInAction } from "mobx";
 import Crunker from "crunker";
 
 configure({ enforceActions: `observed` });
@@ -6,22 +6,29 @@ class SupportersliedStore {
   layers = [];
   isRecording = false;
   createdMediaRecorder;
-  audioLayers = [];
   audioCurrent = [];
+  audioLayers = [];
+  audioBuffers = [];
+  mergedAudioURL;
+  layerCount = 0;
+  autoStop;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
   }
 
   merge = () => {
-    console.log("in de merge");
     let audio = new Crunker();
 
     audio
-      .fetchAudio(this.layers[0], this.layers[1])
+      .fetchAudio(...this.audioLayers)
       .then(buffers => audio.mergeAudio(buffers))
       .then(merged => audio.export(merged, "audio/mp3"))
-      .then(output => audio.download(output.blob))
+      .then(output => {
+        runInAction(() => {
+          this.mergedAudioURL = output.url;
+        });
+      })
       .catch(error => {
         throw new Error(error);
       });
@@ -38,11 +45,27 @@ class SupportersliedStore {
   createAudioFile = data => {
     this.audioCurrent = [];
     this.audioCurrent.push(URL.createObjectURL(new Blob(data)));
-    console.log(this.audioCurrent);
   };
 
   addAudioLayer = data => {
     this.audioLayers.push(data);
+    this.layerCount++;
+  };
+
+  clearAudio = () => {
+    this.audioCurrent = [];
+  };
+
+  deleteLayer = index => {
+    console.log("audiolayers", this.audioLayers);
+
+    this.audioLayers.splice(index, 1);
+    this.layerCount--;
+    console.log("updated audiolayers", this.audioLayers);
+  };
+
+  resetTimeout = stop => {
+    this.autoStop = stop;
   };
 }
 
@@ -53,11 +76,16 @@ decorate(SupportersliedStore, {
   audioLayers: observable,
   isRecording: observable,
   createdMediaRecorder: observable,
+  mergedAudioURL: observable,
+  layerCount: observable,
+  autoStop: observable,
   toggleRecording: action,
   setMediaRecorder: action,
   createAudioFile: action,
   clearAudio: action,
-  addAudioLayer: action
+  addAudioLayer: action,
+  deleteLayer: action,
+  resetTimeout: action
 });
 
 export default SupportersliedStore;

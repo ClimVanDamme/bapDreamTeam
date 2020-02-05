@@ -2,21 +2,99 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 import { ROUTES } from "../constants";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const OverzichtSupporterslied = ({ supportersliedStore }) => {
-  const { audioLayers } = supportersliedStore;
+  const {
+    audioLayers,
+    mergedAudioURL,
+    deleteLayer,
+    layerCount
+  } = supportersliedStore;
+
+  if (audioLayers.length > 0 && audioLayers.length < 10) {
+    const player = React.createRef();
+
+    return (
+      <>
+        <h1>Jouw compositie</h1>
+        <Link to={ROUTES.audioInput}>Voeg toe +</Link>
+        <p>{layerCount} / 10</p>
+
+        {audioLayers.map((layer, index) => (
+          <>
+            <audio
+              className="audioplayer"
+              src={layer}
+              key={index}
+              controls
+            ></audio>
+            <button
+              onClick={() => {
+                deleteLayer(index);
+                console.log(index);
+              }}
+            >
+              Delete Layer
+            </button>
+          </>
+        ))}
+        <button
+          onClick={() => {
+            player.current.src = mergedAudioURL;
+            player.current.play();
+          }}
+        >
+          Play all
+        </button>
+        <audio className="audioplayer" ref={player} controls></audio>
+      </>
+    );
+  }
+
+  if (audioLayers.length === 10) {
+    const player = React.createRef();
+
+    return (
+      <>
+        <h1>Jouw compositie</h1>
+        <p>{layerCount} / 10</p>
+
+        {audioLayers.map((layer, index) => (
+          <>
+            <audio
+              className="audioplayer"
+              src={layer}
+              key={index}
+              controls
+            ></audio>
+            <button
+              onClick={() => {
+                deleteLayer(index);
+                console.log(index);
+              }}
+            >
+              Delete Layer
+            </button>
+          </>
+        ))}
+        <button
+          onClick={() => {
+            player.current.src = mergedAudioURL;
+            player.current.play();
+          }}
+        >
+          Play all
+        </button>
+        <audio className="audioplayer" ref={player} controls></audio>
+      </>
+    );
+  }
+
   return (
     <>
-      <NavLink to={ROUTES.audioInput}>Voeg toe +</NavLink>
-      {console.log(audioLayers)};
-      {audioLayers.map(layer => (
-        <audio className="audioplayer" src={layer} controls></audio>
-      ))}
-      {/* <Recorder layer="One"></Recorder>
-      <Recorder layer="Two"></Recorder>
-      <button onClick={() => console.log("speel alles")}>Play all</button>
-      <button onClick={createTrack}>Download hier je supporterslied!</button> */}
+      <h1>Jouw compositie</h1>
+      <Link to={ROUTES.audioInput}>Voeg toe +</Link>
     </>
   );
 };

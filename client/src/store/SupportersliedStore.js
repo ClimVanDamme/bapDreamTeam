@@ -12,6 +12,8 @@ class SupportersliedStore {
   mergedAudioURL;
   layerCount = 0;
   autoStop;
+  timeLeft = 5;
+  countdownTimer;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -66,6 +68,22 @@ class SupportersliedStore {
 
   resetTimeout = stop => {
     this.autoStop = stop;
+    this.countdownTimer = setInterval(this.countdown, 1000);
+  };
+
+  countdown = () => {
+    if (this.timeLeft === 0) {
+      this.stopCountdown();
+      console.log("countdown gereset");
+    } else {
+      this.timeLeft--;
+      console.log(this.timeLeft);
+    }
+  };
+
+  stopCountdown = () => {
+    clearTimeout(this.countdownTimer);
+    this.timeLeft = 5;
   };
 }
 
@@ -79,13 +97,16 @@ decorate(SupportersliedStore, {
   mergedAudioURL: observable,
   layerCount: observable,
   autoStop: observable,
+  timeLeft: observable,
   toggleRecording: action,
   setMediaRecorder: action,
   createAudioFile: action,
   clearAudio: action,
   addAudioLayer: action,
   deleteLayer: action,
-  resetTimeout: action
+  resetTimeout: action,
+  countdown: action,
+  stopCountdown: action
 });
 
 export default SupportersliedStore;

@@ -12,7 +12,9 @@ const Recorder = ({ supportersliedStore, layer }) => {
     clearAudio,
     merge,
     autoStop,
-    resetTimeout
+    resetTimeout,
+    timeLeft,
+    stopCountdown
   } = supportersliedStore;
 
   const options = { mimeType: "audio/webm" };
@@ -21,6 +23,7 @@ const Recorder = ({ supportersliedStore, layer }) => {
   const stopRec = () => {
     if (supportersliedStore.createdMediaRecorder.state === "recording") {
       clearTimeout(autoStop);
+      stopCountdown();
       supportersliedStore.toggleRecording();
       supportersliedStore.createdMediaRecorder.stop();
     }
@@ -55,7 +58,10 @@ const Recorder = ({ supportersliedStore, layer }) => {
       {audioCurrent.length > 0 ? (
         <>
           {supportersliedStore.isRecording === true ? (
-            <button onClick={stopRec}>Stop</button>
+            <>
+              <button onClick={stopRec}>Stop</button>
+              <p>{timeLeft}</p>
+            </>
           ) : (
             <>
               <button onClick={initiateRec}>Opnieuw opnemem</button>
@@ -92,7 +98,10 @@ const Recorder = ({ supportersliedStore, layer }) => {
       ) : (
         <>
           {supportersliedStore.isRecording === true ? (
-            <button onClick={stopRec}>Stop</button>
+            <>
+              <button onClick={stopRec}>Stop</button>
+              <p>{timeLeft}</p>
+            </>
           ) : (
             <button onClick={initiateRec}>Opnemen</button>
           )}

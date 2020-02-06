@@ -62,6 +62,10 @@ class SupportersliedStore {
     console.log("audiolayers", this.audioLayers);
 
     this.audioLayers.splice(index, 1);
+    if (this.audioLayers.length > 0) {
+      this.merge();
+    }
+
     this.layerCount--;
     console.log("updated audiolayers", this.audioLayers);
   };

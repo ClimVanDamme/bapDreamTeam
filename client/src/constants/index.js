@@ -1,11 +1,16 @@
 export const ROUTES = {
+	//home
 	home: `/`,
+	//belofte
 	belofte: `/belofte`,
-	sporza: `/sporza`,
 	//supporterslied
 	supporterslied: `/supporterslied`,
-	overzichtSupporterslied: `/supporterslied/overzicht`,
-	audioInput: `/supporterslied/audioInput`,
 	//tapwedstrijd
-	tapWedstrijd: `/tapwedstrijd`
+	tapWedstrijd: `/tapwedstrijd`,
+	//smoothiemaker
+	smoothieMaker: `/smoothiemaker`,
+	//postkaartjes
+	postkaartje: `/postkaartje`,
+	//quiz
+	quiz: `/quiz`
 };

@@ -1,40 +1,63 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
-import PostkaartInput from '../components/PostkaartInput';
-import PostkaartKeuzes from '../components/PostkaartKeuzes';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../constants";
+import { inject, observer } from "mobx-react";
+import PostkaartInput from "../components/PostkaartInput";
+import PostkaartKeuzes from "../components/PostkaartKeuzes";
 
-const PostkaartStudent = () => {
-	let gekozenTemplate = null;
-	let ingevoerdTekstje = '';
+const PostkaartStudent = ({ postkaartStore }) => {
+  let {
+    choosenTemplate,
+    cardComment,
+    renderCardResult,
+    errorMessage,
+    createErrorAlert,
+    checkVal
+  } = postkaartStore;
 
-	const gekozenKaart = kaart => {
-		console.log(kaart);
-		gekozenTemplate = kaart;
-	};
+  const gekozenKaart = kaart => {
+    console.log(kaart);
+    choosenTemplate = kaart;
+  };
 
-	const handleInputChange = input => {
-		console.log(input);
-		ingevoerdTekstje = input;
-	};
+  const handleInputChange = input => {
+    //console.log(input);
+    checkVal(input);
+    cardComment = input;
+  };
 
-	const verzend = input => {
-		if (ingevoerdTekstje.length > 0 && gekozenTemplate !== null) {
-			console.log('kaartje ready for verzending');
-			console.log(gekozenTemplate);
-			console.log(ingevoerdTekstje);
-		} else {
-			console.log('kaartje not yet complete');
-		}
-	};
+  const verzend = input => {
+    if (cardComment !== null && choosenTemplate !== null) {
+      createErrorAlert("");
+      console.log("kaartje ready for verzending");
+      renderCardResult(choosenTemplate, cardComment);
+    }
+    if (cardComment === null || choosenTemplate === null) {
+      console.log("niks ingevuld");
+      createErrorAlert(
+        "Gelieve een postkaart te selecteren en een bericht mee te geven."
+      );
+    }
+  };
 
-	return (
-		<div>
-			<PostkaartKeuzes doelgroep={'student'} gekozenKaart={gekozenKaart} />
-			<PostkaartInput handleInputChange={handleInputChange} />
-			<button onClick={verzend}>Verzend</button>
-		</div>
-	);
+  if (errorMessage != "") {
+    return (
+      <div>
+        <PostkaartKeuzes doelgroep={"student"} gekozenKaart={gekozenKaart} />
+        <PostkaartInput handleInputChange={handleInputChange} />
+
+        <p>{errorMessage}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <PostkaartKeuzes doelgroep={"student"} gekozenKaart={gekozenKaart} />
+      <PostkaartInput handleInputChange={handleInputChange} />
+      <button onClick={verzend}>Verzend</button>
+    </div>
+  );
 };
 
-export default PostkaartStudent;
+export default inject(`postkaartStore`)(observer(PostkaartStudent));

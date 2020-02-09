@@ -1,19 +1,63 @@
+@value XS: (max-width: 425px);
+@value S: (max-width: 768px);
+@value M: (max-width: 1024px);
+@value L: (max-width: 1440px);
+@value XL: (min-width: 1440px);
+
+@media XL {
+	.responsiveWrapper {
+		width: 97%;
+		margin: 0 auto;
+	}
+}
+
+@media L {
+	.responsiveWrapper {
+		width: 97%;
+		margin: 0 auto;
+	}
+}
+
+@media M {
+	.responsiveWrapper {
+		/* background-color: yellowgreen; */
+		width: 98%;
+		margin: 0 auto;
+	}
+}
+
+@media S {
+	.responsiveWrapper {
+		/* background-color: aqua; */
+		width: 95vw;
+		margin: 0 auto;
+	}
+}
+
+@media XS {
+	.responsiveWrapper {
+		/* background-color: red; */
+		width: 95vw;
+		margin: 0 auto;
+	}
+}
+
 .layout {
-  max-width: 45rem;
-  margin: 2rem auto 0 auto;
-  border: 1.8rem solid var(--light-color);
-  border-radius: 1rem;
-  background: var(--light-color);
-  position: relative;
+	max-width: 100%;
+	margin: 2rem auto 0 auto;
+	border: 1.8rem solid var(--light-color);
+	border-radius: 1rem;
+	background: var(--light-color);
+	position: relative;
 }
 .content {
-  padding: 2.5rem 2rem;
-  background: var(--ultralight-color);
-  border-radius: 0 0 .7rem .7rem;
-  min-height: 33rem;
-  padding-bottom: 11rem; /* make sure tabbar is always on bottom */
+	padding: 2.5rem 2rem;
+	background: var(--ultralight-color);
+	border-radius: 0 0 0.7rem 0.7rem;
+	min-height: 33rem;
+	padding-bottom: 11rem; /* make sure tabbar is always on bottom */
 }
 .contentNoSpace {
-  padding: 0;
-  padding-bottom: 9rem;
+	padding: 0;
+	padding-bottom: 9rem;
 }

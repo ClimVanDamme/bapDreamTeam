@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import styles from './App.module.css';
+//
+import styles from '../styles/layout.module.css';
 
 import { Helmet } from 'react-helmet';
 
@@ -32,7 +33,7 @@ import PostkaartWerkmens from './PostkaartWerkmens';
 class App extends Component {
 	render() {
 		return (
-			<main className={styles.layout}>
+			<main className={styles.responsiveWrapper}>
 				<Switch>
 					{/* HOME */}
 					<Route key={1} exact path={ROUTES.home}>
@@ -57,13 +58,13 @@ class App extends Component {
 							{
 								component: 'uitleg',
 								path: '',
-								titel: 'Olympische Belofte',
+								titel: 'supporterslied',
 								description: 'Maak een belofte gedurende de Olympische Spelen.',
 								uitleg:
 									'Kies welk soort belofte je wilt aangaan met iemand en vul vervolgens de namen ins ;)',
 								buttons: [
-									{ label: 'Afkick', path: 'afkick' },
-									{ label: 'Voornemen', path: 'voornemen' }
+									{ label: 'Afkick', path: 'afkick', img: 'afkickImg' },
+									{ label: 'Voornemen', path: 'voornemen', img: 'voornemenImg' }
 								]
 							},
 							{

@@ -16,11 +16,11 @@ const Uitleg = ({ path, titel, uitleg, buttons }) => {
 	return (
 		<section>
 			<Title keyValue={uuid()} text={titel} />
-			<img
+			{/* <img
 				className={styleUitleg.challengeImg}
 				src={`./assets/img/${titel}@2x.png`}
 				alt={`${titel} foto`}
-			/>
+			/> */}
 			<div className={styleUI.tussenTitelCont}>
 				<h2 className={styleUI.tussenTitel}>Hoe werkt het?</h2>
 			</div>

@@ -113,15 +113,3 @@
 		font-size: 12vw;
 	}
 }
-
-.tussenTitelCont {
-	background-color: var(--blue-color);
-	padding: 3rem 4rem;
-	padding-left: 1rem;
-	padding-right: 10rem;
-	width: max-content;
-}
-
-.tussenTitel {
-	color: white;
-}

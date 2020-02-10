@@ -1,0 +1,28 @@
+.uitleg {
+	background-color: var(--blue-color);
+	color: white;
+	transform: skew(-0.06turn, 18deg);
+}
+
+.challengeImg {
+	width: 30rem;
+	height: auto;
+}
+
+.btnCont {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto auto;
+	width: max-content;
+}
+
+.btnImg {
+	width: 60rem;
+	height: auto;
+	align-self: center;
+}
+
+.btnCenter {
+	display: flex;
+	justify-content: center;
+}

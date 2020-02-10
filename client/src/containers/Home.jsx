@@ -2,34 +2,63 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants';
 
-// import styles from "./Home.module.css";
-// import stylesLayout from "../styles/layout.module.css";
+import styles from './Home.module.css';
+import HomeChallenge from '../components/HomeChallenge';
+import stylesLayout from '../styles/layout.module.css';
+import stylesHome from './Home.module.css';
+
+import Button from '../components/Button';
+import Title from '../components/Title';
 
 const Home = () => {
 	return (
 		<>
+			<header className={stylesHome.headerGrid}>
+				<div className={stylesHome.headerTitle}>
+					<Title
+						keyValue={1}
+						text={[
+							'De Spelen ',
+							<br />,
+							'zijn van ',
+							<span className={stylesHome.headerO}>o</span>,
+							<span className={stylesHome.headerN}>n</span>,
+							<span className={stylesHome.headerS}>s</span>
+						]}
+					/>
+				</div>
+				<div className={stylesHome.headerText}>
+					<p>
+						De Belgische atleten geven het beste van zichzelf op de Spelen in
+						Tokio. Da de Olympische uitdagingen aan en daag zoveel mogelijk
+						mensen uit. En toon zo dat we achter Team Belgium staan!
+					</p>
+					<div className={stylesHome.headerBtn}>
+						<Button
+							keyValue={1}
+							label={'ga naar nieuwste opdracht'}
+							color={'secondary'}
+							link={'#latest'}
+						/>
+					</div>
+				</div>
+				<img
+					className={stylesHome.headerImg}
+					src='../assets/img/header_image@2x.png'
+					alt='sporza_atleten_home'
+				/>
+				<div className={stylesHome.headerScroll}>
+					<p style={{ textAlign: 'center', textTransform: 'uppercase' }}>
+						scroll verder
+					</p>
+					<p className={stylesHome.scrollAnimation}>﹀</p>
+				</div>
+			</header>
 			<section>
-				<h1>Welkom op de Sporza home!</h1>
-				<ul>
-					<li key={1}>
-						<Link to={`${ROUTES.belofte}`}>Supportificaat</Link>
-					</li>
-					<li key={2}>
-						<Link to={`${ROUTES.supporterslied}`}>Supporterslied</Link>
-					</li>
-					<li key={3}>
-						<Link to={`${ROUTES.tapWedstrijd}`}>tapWedstrijd</Link>
-					</li>
-					<li key={4}>
-						<Link to={`${ROUTES.smoothieMaker}`}>smoothieMaker</Link>
-					</li>
-					<li key={5}>
-						<Link to={`${ROUTES.postkaartje}`}>postkaartje</Link>
-					</li>
-					<li key={6}>
-						<Link to={`${ROUTES.quiz}`}>Welke atleet ben jij?</Link>
-					</li>
-				</ul>
+				<HomeChallenge challenge={'belofte'} />
+				<HomeChallenge challenge={'supporterslied'} />
+				<HomeChallenge challenge={'postkaartje'} />
+				<HomeChallenge challenge={'tapwedstrijd'} />
 			</section>
 		</>
 	);

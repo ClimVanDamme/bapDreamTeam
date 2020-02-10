@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import styles from "./App.module.css";
+import styles from "../styles/layout.module.css";
 
 import { Helmet } from "react-helmet";
 
@@ -63,8 +63,8 @@ class App extends Component {
                 uitleg:
                   "Kies welk soort belofte je wilt aangaan met iemand en vul vervolgens de namen ins ;)",
                 buttons: [
-                  { label: "Afkick", path: "afkick" },
-                  { label: "Voornemen", path: "voornemen" }
+                  { label: "Afkick", path: "afkick", img: "afkickImg" },
+                  { label: "Voornemen", path: "voornemen", img: "voornemenImg" }
                 ]
               },
               {

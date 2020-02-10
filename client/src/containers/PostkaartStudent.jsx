@@ -23,7 +23,6 @@ const PostkaartStudent = ({ postkaartStore }) => {
   const handleInputChange = input => {
     //console.log(input);
     checkVal(input);
-    cardComment = input;
   };
 
   const verzend = input => {
@@ -55,7 +54,9 @@ const PostkaartStudent = ({ postkaartStore }) => {
     <div>
       <PostkaartKeuzes doelgroep={"student"} gekozenKaart={gekozenKaart} />
       <PostkaartInput handleInputChange={handleInputChange} />
-      <button onClick={verzend}>Verzend</button>
+      <Link to={`/postkaartje/resultaat`}>
+        <button onClick={verzend}>Verzend</button>
+      </Link>
     </div>
   );
 };

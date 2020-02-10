@@ -21,6 +21,7 @@ class PostkaartStore {
 
   checkVal = text => {
     this.error = 0;
+    this.cardComment = text;
 
     console.log(text);
 

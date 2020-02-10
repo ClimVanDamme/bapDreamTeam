@@ -48,6 +48,7 @@ const OverzichtSupporterslied = ({ supportersliedStore }) => {
           Play all
         </button>
         <audio className="audioplayer" ref={player} controls></audio>
+        <Link to={`/supporterslied/resultaat`}>Delen</Link>
       </>
     );
   }
@@ -87,6 +88,7 @@ const OverzichtSupporterslied = ({ supportersliedStore }) => {
           Play all
         </button>
         <audio className="audioplayer" ref={player} controls></audio>
+        <Link to={`/supporterslied/resultaat`}>Delen</Link>
       </>
     );
   }

@@ -19,11 +19,12 @@ class Button extends Component {
 		this.link = props.link;
 		this.btnLabel = props.label;
 		this.setBtnColor(props.color);
-		this.buttonRef = React.createRef();
+		// this.buttonRef = React.createRef();
 		this.state = {
 			divStyle: {
 				width: `0px`,
 				height: `0px`,
+				marginLeft: `0px`,
 				marginTop: `0px`
 			}
 		};
@@ -38,19 +39,24 @@ class Button extends Component {
 	};
 
 	componentDidMount = () => {
-		const button = document.querySelector(`.linkEl${this.key}`);
-		this.btnHeight = button.getBoundingClientRect().height;
-		this.btnWidth = button.getBoundingClientRect().width;
-		console.log(button.getBoundingClientRect());
-		this.renderOutlineStyle();
+		// const button = document.querySelector(`.linkEl${this.key}`);
+		// this.btnHeight = button.getBoundingClientRect().height;
+		// this.btnWidth = button.getBoundingClientRect().width;
+		// console.log(button.getBoundingClientRect());
+		// this.renderOutlineStyle();
+		setTimeout(this.getDimensions(), 1000);
 		window.addEventListener('resize', this.getDimensions);
 	};
 
 	getDimensions = () => {
-		const button = document.querySelector(`.linkEl${this.key}`);
-		this.btnHeight = button.getBoundingClientRect().height;
-		this.btnWidth = button.getBoundingClientRect().width;
-		this.renderOutlineStyle();
+		// const button = document.querySelector(`.linkEl${this.key}`);
+		if (this.buttonRef) {
+			const button = this.buttonRef;
+			console.log('getdimensions', button);
+			this.btnHeight = button.getBoundingClientRect().height;
+			this.btnWidth = button.getBoundingClientRect().width;
+			this.renderOutlineStyle();
+		}
 	};
 
 	renderOutlineStyle = () => {
@@ -60,13 +66,13 @@ class Button extends Component {
 				height: `${this.btnHeight}px`,
 				marginTop: `-${this.btnHeight + 5}px`,
 				marginLeft: '0.5rem',
+				marginRight: '0',
 				transition: 'margin-top 0.1s ease-in-out, margin-left 0.1s ease-in-out'
 			}
 		});
 	};
 
 	handleEnter = () => {
-		console.log('in');
 		this.setState({
 			divStyle: {
 				width: `${this.btnWidth}px`,
@@ -87,6 +93,7 @@ class Button extends Component {
 			>
 				<Link to={this.link}>
 					<span
+						ref={e => (this.buttonRef = e)}
 						className={`linkEl${this.key} ${stylesUI.button} ${this.btnColor}`}
 					>
 						{this.btnLabel}

@@ -6,20 +6,19 @@ import stylesUI from "../styles/uiControls.module.css";
 
 const Outline = ({ text, style }) => {
   return (
-    <div className={stylesUI.titleOutline} style={style}>
+    <div className={stylesUI.titleMiddleOutline} style={style}>
       {text}
     </div>
   );
 };
 
-class Title extends Component {
+class TitleMiddle extends Component {
   titleHeight;
 
   constructor(props) {
     super(props);
     this.key = props.keyValue;
     this.text = props.text;
-    console.log(props.text);
     this.titleRef = React.createRef();
     this.state = {
       divStyle: {
@@ -45,7 +44,7 @@ class Title extends Component {
   renderOutlineStyle = () => {
     this.setState({
       divStyle: {
-        marginTop: `-${this.titleHeight + 3}px`
+        marginTop: `-${this.titleHeight + 2}px`
       }
     });
     console.log(this.state.divStyle);
@@ -54,17 +53,17 @@ class Title extends Component {
   render = () => {
     return (
       <div>
-        <h1
+        <h2
           data-key={this.key}
           ref={this.titleRef}
-          className={`titelEl${this.key} ${stylesUI.titleResponsive}`}
+          className={`titelEl${this.key} ${stylesUI.titleMiddleResponsive} middleTitle`}
         >
           {this.text}
-        </h1>
+        </h2>
         <Outline text={this.text} style={this.state.divStyle} />
       </div>
     );
   };
 }
 
-export default Title;
+export default TitleMiddle;

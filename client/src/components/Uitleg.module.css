@@ -1,28 +1,65 @@
+@value XS, S, M, L, XL from "../styles/layout.module.css";
+
 .uitleg {
-	background-color: var(--blue-color);
-	color: white;
-	transform: skew(-0.06turn, 18deg);
+  background-color: var(--blue-color);
+  color: white;
+  transform: skew(-0.06turn, 18deg);
 }
 
 .challengeImg {
-	width: 30rem;
-	height: auto;
+  width: 30rem;
+  height: auto;
 }
 
 .btnCont {
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto auto;
-	width: max-content;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  width: max-content;
 }
 
 .btnImg {
-	width: 60rem;
-	height: auto;
-	align-self: center;
+  width: 25vw;
+  height: auto;
+  align-self: center;
 }
 
 .btnCenter {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media L {
+  .selectionContainer {
+    width: max-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-template-rows: auto;
+    grid-gap: 5rem;
+  }
+}
+
+@media M {
+  .selectionContainer {
+    width: max-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-rows: auto;
+    grid-gap: 5rem;
+  }
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+
+  grid-template-areas: ". content .";
+}
+
+.content {
+  grid-area: content;
 }

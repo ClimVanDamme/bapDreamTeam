@@ -1,44 +1,44 @@
-@import './reset.css';
-@import './colors.module.css';
-@import './typo.module.css';
-@import './uiControls.module.css';
-@import './layout.module.css';
+@import "./reset.css";
+@import "./colors.module.css";
+@import "./typo.module.css";
+@import "./uiControls.module.css";
+@import "./layout.module.css";
 
 html {
-	font-size: 62.5%;
-	box-sizing: border-box;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: Roboto, sans-serif;
-	font-weight: 300;
-	background-color: #fffffa;
-	background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  background-color: #fffffa;
+  background-attachment: fixed;
 }
 
 a {
-	/* color: var(--primary-color); */
-	text-decoration: none;
+  /* color: var(--primary-color); */
+  text-decoration: none;
 }
 
 button,
-input[type='submit'],
-input[type='reset'] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 /* body {
@@ -47,11 +47,11 @@ input[type='reset'] {
   background-repeat: no-repeat;
 } */
 
-.visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip: rect(1px, 1px, 1px, 1px);
-	white-space: nowrap;
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }

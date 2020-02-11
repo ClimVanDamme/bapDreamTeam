@@ -1,8 +1,15 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
+import Button from "../components/Button";
+import * as uuid from "uuid/v4";
+import Title from "../components/Title";
+
 import { ROUTES } from "../constants";
 import { Link } from "react-router-dom";
+
+import stylesOverzichtSupporterslied from "./OverzichtSupporterslied.module.css";
+import TitleMiddle from "../components/TitleMiddle";
 
 const OverzichtSupporterslied = ({ supportersliedStore }) => {
   const {
@@ -18,7 +25,9 @@ const OverzichtSupporterslied = ({ supportersliedStore }) => {
     return (
       <>
         <h1>Jouw compositie</h1>
-        <Link to={`${ROUTES.supporterslied}/opnemen`}>Voeg toe +</Link>
+        <Link to={`${ROUTES.supporterslied}/opnemen`}>
+          <img src="../assets/img/plus_knop@2x.png" alt="voeg toe +" />
+        </Link>
         <p>{layerCount} / 10</p>
 
         {audioLayers.map((layer, index) => (
@@ -95,8 +104,15 @@ const OverzichtSupporterslied = ({ supportersliedStore }) => {
 
   return (
     <>
-      <h1>Jouw compositie</h1>
-      <Link to={`${ROUTES.supporterslied}/opnemen`}>Voeg toe +</Link>
+      <TitleMiddle keyValue={uuid()} text="Supporterslied." />
+      <p>Maak een nieuw geluidsfragment</p>
+      <Button
+        className={stylesOverzichtSupporterslied.roundButton}
+        keyValue={uuid()}
+        color={"secondary"}
+        link={`${ROUTES.supporterslied}/opnemen`}
+        label={"+"}
+      />
     </>
   );
 };

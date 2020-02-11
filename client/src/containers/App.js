@@ -20,7 +20,7 @@ import Supporterslied from "./Supporterslied";
 import OverzichtSupporterslied from "./OverzichtSupporterslied";
 import AudioInput from "./AudioInput";
 //
-import TapWedstrijd from "./TapWedstrijd";
+//import TapWedstrijd from "./aaTapWedstrijd";
 import TapInput from "./TapInput";
 //
 import SmoothieMaker from "./SmoothieMaker";
@@ -102,12 +102,12 @@ class App extends Component {
               {
                 component: "uitleg",
                 path: "",
-                titel: "Supporterslied",
+                titel: "Supporterslied.",
                 description:
                   "Maak je eigen supporterslied om de Belgische atleten op de Olympische Spelen aan te moedigen!",
                 uitleg:
-                  "Maak maximaal 10 lagen van 10 seconden aan, waarin jij jouw eigen supporterslied componeert. Deel vervolgens jouw meesterwerk met iedereen ;)",
-                buttons: [{ label: "Maak een meesterwerk", path: "overzicht" }]
+                  "Laat horen hoe jij iemand aanmoedigt en maak een supporterslied, alleen of samen met vrienden.",
+                buttons: [{ label: "Start >", path: "overzicht" }]
               },
               {
                 component: <OverzichtSupporterslied />,
@@ -148,11 +148,11 @@ class App extends Component {
                 description:
                   "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
                 uitleg:
-                  "Druk op de mix knop en bekijk verrassende combinaties van fruit om in jouw smoothie te steken.",
+                  "Kies op welke afstand jij jezelf wilt bewijzen en tap zo snel mogelijk naar de finish!",
                 buttons: [
-                  { label: "100m", path: "100" },
-                  { label: "200m", path: "200" },
-                  { label: "400m", path: "400" }
+                  { label: "100 meter >", path: "100", img: "select_100m@2x" },
+                  { label: "200 meter >", path: "200", img: "select_200m@2x" },
+                  { label: "400 meter >", path: "400", img: "select_400m@2x" }
                 ]
               },
               {

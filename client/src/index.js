@@ -7,26 +7,37 @@ import * as serviceWorker from './serviceWorker';
 import store from './store';
 import './styles/index.css';
 
-const rootElement = document.getElementById(`root`);
+// const rootElement = document.getElementById(`root`);
 
-if (rootElement.hasChildNodes()) {
-	ReactDOM.hydrate(
-		<Provider {...store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>,
-		rootElement
-	);
-} else {
-	ReactDOM.render(
-		<Provider {...store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>,
-		rootElement
-	);
-}
+// if (rootElement.hasChildNodes()) {
+// 	ReactDOM.hydrate(
+// 		<Provider {...store}>
+// 			<BrowserRouter>
+// 				<App />
+// 			</BrowserRouter>
+// 		</Provider>,
+// 		rootElement
+// 	);
+// } else {
+// 	ReactDOM.render(
+// 		<Provider {...store}>
+// 			<BrowserRouter>
+// 				<App />
+// 			</BrowserRouter>
+// 		</Provider>,
+// 		rootElement
+// 	);
+// }
 
+// serviceWorker.register();
+
+ReactDOM.render(
+	<Provider {...store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>,
+
+	document.getElementById(`root`)
+);
 serviceWorker.register();

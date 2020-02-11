@@ -10,13 +10,15 @@ import stylesHome from './Home.module.css';
 import Button from '../components/Button';
 import Title from '../components/Title';
 
+import * as uuid from 'uuid/v4';
+
 const Home = () => {
 	return (
 		<>
 			<header className={stylesHome.headerGrid}>
 				<div className={stylesHome.headerTitle}>
 					<Title
-						keyValue={1}
+						keyValue={uuid()}
 						text={[
 							'De Spelen ',
 							<br />,
@@ -35,7 +37,7 @@ const Home = () => {
 					</p>
 					<div className={stylesHome.headerBtn}>
 						<Button
-							keyValue={1}
+							keyValue={uuid()}
 							label={'ga naar nieuwste opdracht'}
 							color={'secondary'}
 							link={'#latest'}
@@ -54,11 +56,13 @@ const Home = () => {
 					<p className={stylesHome.scrollAnimation}>﹀</p>
 				</div>
 			</header>
-			<section>
-				<HomeChallenge challenge={'belofte'} />
-				<HomeChallenge challenge={'supporterslied'} />
-				<HomeChallenge challenge={'postkaartje'} />
-				<HomeChallenge challenge={'tapwedstrijd'} />
+			<section className={stylesHome.sectionChallenges}>
+				<div className={stylesHome.tijdslijn}>
+					<HomeChallenge challenge={'belofte'} />
+					<HomeChallenge challenge={'supporterslied'} />
+					<HomeChallenge challenge={'postkaartje'} />
+					<HomeChallenge challenge={'tapwedstrijd'} />
+				</div>
 			</section>
 		</>
 	);

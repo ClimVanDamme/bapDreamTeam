@@ -1,69 +1,76 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { ROUTES } from "../constants";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../constants';
 
-import stylesUI from "../styles/uiControls.module.css";
+import stylesUI from '../styles/uiControls.module.css';
 
 const Outline = ({ text, style }) => {
-  return (
-    <div className={stylesUI.titleMiddleOutline} style={style}>
-      {text}
-    </div>
-  );
+	return (
+		<div className={stylesUI.titleMiddleOutline} style={style}>
+			{text}
+		</div>
+	);
 };
 
 class TitleMiddle extends Component {
-  titleHeight;
+	titleHeight;
+	windowWidth;
+	windowHeight;
 
-  constructor(props) {
-    super(props);
-    this.key = props.keyValue;
-    this.text = props.text;
-    this.titleRef = React.createRef();
-    this.state = {
-      divStyle: {
-        marginTop: "0"
-      }
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.key = props.keyValue;
+		this.text = props.text;
+		this.titleRef = React.createRef();
+		this.state = {
+			divStyle: {
+				marginTop: '0'
+			}
+		};
+	}
 
-  componentDidMount = () => {
-    console.log("key", this.key);
-    console.log("ref", this.titleRef.dataset);
-    const title = document.querySelector(`.titelEl${this.key}`);
-    this.getDimensions();
-    window.addEventListener("resize", this.getDimensions);
-  };
+	componentDidMount = () => {
+		setTimeout(() => {
+			this.getDimensions();
+		}, 100);
+		window.addEventListener('resize', this.getDimensions);
+	};
 
-  getDimensions = () => {
-    const title = document.querySelector(`.titelEl${this.key}`);
-    this.titleHeight = title.getBoundingClientRect().height;
-    this.renderOutlineStyle();
-  };
+	getDimensions = () => {
+		if (this.titleRef) {
+			const title = this.titleRef;
+			console.log('getdimensions', title);
+			this.titleHeight = title.getBoundingClientRect().height;
+			this.windowWidth = window.innerWidth;
+			this.windowHeight = window.innerHeight;
+			this.renderOutlineStyle();
+		}
+	};
 
-  renderOutlineStyle = () => {
-    this.setState({
-      divStyle: {
-        marginTop: `-${this.titleHeight + 2}px`
-      }
-    });
-    console.log(this.state.divStyle);
-  };
+	renderOutlineStyle = () => {
+		const offsetHorizontal = this.windowWidth * 0.0015;
+		const offsetVertical = this.windowHeight * 0.0025;
+		this.setState({
+			divStyle: {
+				marginTop: `-${this.titleHeight + offsetVertical}px`,
+				marginLeft: `${offsetHorizontal}px`
+			}
+		});
+	};
 
-  render = () => {
-    return (
-      <div>
-        <h2
-          data-key={this.key}
-          ref={this.titleRef}
-          className={`titelEl${this.key} ${stylesUI.titleMiddleResponsive} middleTitle`}
-        >
-          {this.text}
-        </h2>
-        <Outline text={this.text} style={this.state.divStyle} />
-      </div>
-    );
-  };
+	render = () => {
+		return (
+			<div>
+				<h2
+					ref={e => (this.titleRef = e)}
+					className={`titelEl${this.key} ${stylesUI.titleMiddleResponsive} middleTitle`}
+				>
+					{this.text}
+				</h2>
+				<Outline text={this.text} style={this.state.divStyle} />
+			</div>
+		);
+	};
 }
 
 export default TitleMiddle;

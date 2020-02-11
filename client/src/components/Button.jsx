@@ -12,6 +12,8 @@ class Button extends Component {
 	btnWidth;
 	btnHeight;
 	divStyle;
+	windowWidth;
+	windowHeight;
 
 	constructor(props) {
 		super(props);
@@ -19,7 +21,6 @@ class Button extends Component {
 		this.link = props.link;
 		this.btnLabel = props.label;
 		this.setBtnColor(props.color);
-		// this.buttonRef = React.createRef();
 		this.state = {
 			divStyle: {
 				width: `0px`,
@@ -39,33 +40,33 @@ class Button extends Component {
 	};
 
 	componentDidMount = () => {
-		// const button = document.querySelector(`.linkEl${this.key}`);
-		// this.btnHeight = button.getBoundingClientRect().height;
-		// this.btnWidth = button.getBoundingClientRect().width;
-		// console.log(button.getBoundingClientRect());
-		// this.renderOutlineStyle();
-		setTimeout(this.getDimensions(), 1000);
+		setTimeout(() => {
+			this.getDimensions();
+		}, 100);
 		window.addEventListener('resize', this.getDimensions);
 	};
 
 	getDimensions = () => {
-		// const button = document.querySelector(`.linkEl${this.key}`);
 		if (this.buttonRef) {
 			const button = this.buttonRef;
 			console.log('getdimensions', button);
 			this.btnHeight = button.getBoundingClientRect().height;
 			this.btnWidth = button.getBoundingClientRect().width;
+			this.windowWidth = window.innerWidth;
+			this.windowHeight = window.innerHeight;
 			this.renderOutlineStyle();
 		}
 	};
 
 	renderOutlineStyle = () => {
+		const offsetHorizontal = this.windowWidth * 0.0035;
+		const offsetVertical = this.windowHeight * 0.0035;
 		this.setState({
 			divStyle: {
 				width: `${this.btnWidth}px`,
 				height: `${this.btnHeight}px`,
-				marginTop: `-${this.btnHeight + 5}px`,
-				marginLeft: '0.5rem',
+				marginTop: `-${this.btnHeight + offsetVertical}px`,
+				marginLeft: `${offsetHorizontal}px`,
 				marginRight: '0',
 				transition: 'margin-top 0.1s ease-in-out, margin-left 0.1s ease-in-out'
 			}

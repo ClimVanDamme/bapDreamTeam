@@ -92,9 +92,7 @@
 }
 
 .scrollAnimation {
-	position: relative;
-	top: 0;
-	bottom: 0;
+	text-align: center;
 	animation: shuffle 2s infinite ease-in-out;
 }
 
@@ -142,6 +140,15 @@
 		width: 35vw;
 		margin: 0 auto;
 	}
+	.headerScroll {
+		grid-area: scroll;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		padding-bottom: 2rem;
+	}
 	.headerText p {
 		width: 50rem;
 		margin: auto 0;
@@ -169,6 +176,15 @@
 		height: auto;
 		width: 40vw;
 		margin: 0 auto;
+	}
+	.headerScroll {
+		grid-area: scroll;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		padding-bottom: 2rem;
 	}
 	.headerText p {
 		width: 50rem;
@@ -212,6 +228,7 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: center;
+		padding-bottom: 2rem;
 	}
 	.headerTitle {
 		grid-area: title;
@@ -253,6 +270,7 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: center;
+		padding-bottom: 2rem;
 	}
 	.headerTitle {
 		grid-area: title;
@@ -294,6 +312,7 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: center;
+		padding-bottom: 2rem;
 	}
 }
 
@@ -346,4 +365,10 @@
 	100% {
 		transform: translateY(-1rem);
 	}
+}
+
+/* Challenges section */
+
+.sectionChallenges {
+	display: block;
 }

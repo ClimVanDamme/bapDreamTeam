@@ -1,43 +1,43 @@
 @value XS, S, M, L, XL from "./layout.module.css";
 
 .visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
 }
 
 .textInput {
-  flex: 1;
-  border: none;
-  font-size: 2rem;
-  background-color: transparent;
-  color: white;
-  border-bottom: 0.1rem solid white;
-  outline: none;
-  margin: 0 2rem;
+	flex: 1;
+	border: none;
+	font-size: 2rem;
+	background-color: transparent;
+	color: white;
+	border-bottom: 0.1rem solid white;
+	outline: none;
+	margin: 0 2rem;
 }
 
 .buttonCont {
-  height: 5rem;
-  width: max-content;
+	height: 5rem;
+	width: max-content;
 }
 
 .button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30rem;
-  font-family: "roboto condensed";
-  font-style: italic;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  padding: 1.5rem 3rem;
-  width: max-content;
-  height: max-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30rem;
+	font-family: 'roboto condensed';
+	font-style: italic;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	padding: 1.5rem 3rem;
+	width: max-content;
+	height: max-content;
 }
 /* .button::after {
 	content: '';
@@ -51,118 +51,118 @@
 } */
 
 .primary {
-  border-radius: 30rem;
-  background-color: var(--green-color);
-  color: var(--gray-color);
+	border-radius: 30rem;
+	background-color: var(--green-color);
+	color: var(--gray-color);
 }
 
 .secondary {
-  border-radius: 30rem;
-  background-color: var(--blue-color);
-  color: var(--white-color);
+	border-radius: 30rem;
+	background-color: var(--blue-color);
+	color: var(--white-color);
 }
 
 .btnOutline {
-  border: 0.1rem black solid;
-  border-radius: 30rem;
+	border: 0.1rem black solid;
+	border-radius: 30rem;
 }
 
 @media XL {
-  .titleResponsive {
-    font-size: 9rem;
-    text-align: center;
-  }
-  .titleOutline {
-    composes: titleOutline from "../styles/typo.module.css";
-    font-size: 9rem;
-  }
+	.titleResponsive {
+		font-size: 9rem;
+		text-align: center;
+	}
+	.titleOutline {
+		composes: titleOutline from '../styles/typo.module.css';
+		font-size: 9rem;
+	}
 
-  .titleMiddleResponsive {
-    font-size: 7.5rem;
-    text-align: left;
-  }
-  .titleMiddleOutline {
-    composes: titleMiddleOutline from "../styles/typo.module.css";
-    font-size: 7.5rem;
-  }
+	.titleMiddleResponsive {
+		font-size: 7.5rem;
+		text-align: left;
+	}
+	.titleMiddleOutline {
+		composes: titleMiddleOutline from '../styles/typo.module.css';
+		font-size: 7.5rem;
+	}
 }
 
 @media L {
-  .titleResponsive {
-    font-size: 9rem;
-    text-align: center;
-  }
-  .titleOutline {
-    composes: titleOutline from "../styles/typo.module.css";
-    font-size: 9rem;
-  }
+	.titleResponsive {
+		font-size: 9rem;
+		text-align: center;
+	}
+	.titleOutline {
+		composes: titleOutline from '../styles/typo.module.css';
+		font-size: 9rem;
+	}
 
-  .titleMiddleResponsive {
-    font-size: 7.5rem;
-    text-align: left;
-  }
-  .titleMiddleOutline {
-    composes: titleMiddleOutline from "../styles/typo.module.css";
-    font-size: 7.5rem;
-  }
+	.titleMiddleResponsive {
+		font-size: 7.5rem;
+		text-align: left;
+	}
+	.titleMiddleOutline {
+		composes: titleMiddleOutline from '../styles/typo.module.css';
+		font-size: 7.5rem;
+	}
 }
 
 @media M {
-  .titleResponsive {
-    font-size: 6rem;
-    text-align: center;
-  }
-  .titleOutline {
-    composes: titleOutline from "../styles/typo.module.css";
-    font-size: 6rem;
-  }
+	.titleResponsive {
+		font-size: 6rem;
+		text-align: center;
+	}
+	.titleOutline {
+		composes: titleOutline from '../styles/typo.module.css';
+		font-size: 6rem;
+	}
 
-  .titleMiddleResponsive {
-    font-size: 7.5rem;
-    text-align: left;
-  }
-  .titleMiddleOutline {
-    composes: titleMiddleOutline from "../styles/typo.module.css";
-    font-size: 7.5rem;
-  }
+	.titleMiddleResponsive {
+		font-size: 7.5rem;
+		text-align: left;
+	}
+	.titleMiddleOutline {
+		composes: titleMiddleOutline from '../styles/typo.module.css';
+		font-size: 7.5rem;
+	}
 }
 
 @media S {
-  .titleResponsive {
-    font-size: 6.5rem;
-    text-align: center;
-  }
-  .titleOutline {
-    composes: titleOutline from "../styles/typo.module.css";
-    font-size: 6.5rem;
-  }
+	.titleResponsive {
+		font-size: 6.5rem;
+		text-align: center;
+	}
+	.titleOutline {
+		composes: titleOutline from '../styles/typo.module.css';
+		font-size: 6.5rem;
+	}
 
-  .titleMiddleResponsive {
-    font-size: 7.5rem;
-    text-align: left;
-  }
-  .titleMiddleOutline {
-    composes: titleMiddleOutline from "../styles/typo.module.css";
-    font-size: 7.5rem;
-  }
+	.titleMiddleResponsive {
+		font-size: 5rem;
+		text-align: left;
+	}
+	.titleMiddleOutline {
+		composes: titleMiddleOutline from '../styles/typo.module.css';
+		font-size: 5rem;
+	}
 }
 
 @media XS {
-  .titleResponsive {
-    font-size: 12vw;
-    text-align: center;
-  }
-  .titleOutline {
-    composes: titleOutline from "../styles/typo.module.css";
-    font-size: 12vw;
-  }
+	.titleResponsive {
+		font-size: 12vw;
+		text-align: center;
+	}
+	.titleOutline {
+		composes: titleOutline from '../styles/typo.module.css';
+		font-size: 12vw;
+	}
 
-  .titleMiddleResponsive {
-    font-size: 7.5rem;
-    text-align: left;
-  }
-  .titleMiddleOutline {
-    composes: titleMiddleOutline from "../styles/typo.module.css";
-    font-size: 7.5rem;
-  }
+	.titleMiddleResponsive {
+		font-size: 11vw;
+		text-align: left;
+	}
+	.titleMiddleOutline {
+		composes: titleMiddleOutline from '../styles/typo.module.css';
+		font-size: 11vw;
+	}
 }

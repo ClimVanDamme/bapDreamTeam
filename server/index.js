@@ -41,6 +41,7 @@ app.get('/*', (req, res) => {
 `;
 
 	res.send(html);
+	console.log(html);
 });
 
 app.listen(process.env.PORT || 4000);

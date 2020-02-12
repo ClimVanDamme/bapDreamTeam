@@ -305,6 +305,7 @@
 	.headerImg {
 		grid-area: image;
 		height: 100%;
+		max-height: 37vh;
 		width: auto;
 		margin: 0 auto;
 	}

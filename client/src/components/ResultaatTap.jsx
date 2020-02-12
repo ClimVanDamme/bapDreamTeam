@@ -78,7 +78,7 @@ const ResultaatTap = ({ tapwedstrijdStore }) => {
 			ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
 		};
 
-		if (maxTaps === 5) {
+		if (maxTaps === 100) {
 			if (finalTime <= 8.5) {
 				bg.src = '../assets/img/result_400_3stars.png';
 			}

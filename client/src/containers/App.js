@@ -173,7 +173,7 @@ class App extends Component {
 								]
 							},
 							{
-								component: <TapInput max={5} />,
+								component: <TapInput max={100} />,
 								path: '100',
 								titel: '100m Tapwedstrijd',
 								description: '100 meter tappen',

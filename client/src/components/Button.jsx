@@ -49,7 +49,6 @@ class Button extends Component {
 	getDimensions = () => {
 		if (this.buttonRef) {
 			const button = this.buttonRef;
-			console.log('getdimensions', button);
 			this.btnHeight = button.getBoundingClientRect().height;
 			this.btnWidth = button.getBoundingClientRect().width;
 			this.windowWidth = window.innerWidth;

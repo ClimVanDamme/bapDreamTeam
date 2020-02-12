@@ -39,7 +39,6 @@ class TitleMiddle extends Component {
 	getDimensions = () => {
 		if (this.titleRef) {
 			const title = this.titleRef;
-			console.log('getdimensions', title);
 			this.titleHeight = title.getBoundingClientRect().height;
 			this.windowWidth = window.innerWidth;
 			this.windowHeight = window.innerHeight;

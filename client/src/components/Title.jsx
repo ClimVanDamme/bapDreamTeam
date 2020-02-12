@@ -21,7 +21,6 @@ class Title extends Component {
 		super(props);
 		this.key = props.keyValue;
 		this.text = props.text;
-		console.log(props.text);
 		this.titleRef = React.createRef();
 		this.state = {
 			divStyle: {
@@ -40,7 +39,6 @@ class Title extends Component {
 	getDimensions = () => {
 		if (this.titleRef) {
 			const title = this.titleRef;
-			console.log('getdimensions', title);
 			this.titleHeight = title.getBoundingClientRect().height;
 			this.windowWidth = window.innerWidth;
 			this.windowHeight = window.innerHeight;

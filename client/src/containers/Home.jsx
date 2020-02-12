@@ -17,10 +17,25 @@ import { CSSTransitionGroup } from 'react-transition-group';
 const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
 
 class Home extends Component {
+	vh;
+
 	constructor(props) {
 		super(props);
 		this.latest = React.createRef();
+		this.headerGrid = React.createRef();
+		this.vh = window.innerHeight * 0.01;
 	}
+
+	componentDidMount = async () => {
+		this.getDimensions();
+		window.addEventListener('resize', this.getDimensions);
+	};
+
+	getDimensions = () => {
+		this.vh = window.innerHeight * 0.01;
+		console.log('RESPONSIVE HOME HEADER!!!');
+		document.documentElement.style.setProperty('--vh', `${this.vh}px`);
+	};
 
 	scrollToLatest = () => {
 		scrollToRef(this.latest);
@@ -29,7 +44,7 @@ class Home extends Component {
 	render = () => {
 		return (
 			<>
-				<header className={stylesHome.headerGrid}>
+				<header ref={this.headerGrid} className={stylesHome.headerGrid}>
 					<div className={stylesHome.headerTitle}>
 						<Title
 							keyValue={uuid()}

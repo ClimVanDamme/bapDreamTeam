@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
@@ -34,6 +34,8 @@ function TapInput({ max, tapwedstrijdStore }) {
 		};
 	}, []);
 
+	const [touch, setTouch] = useState(false);
+
 	const discipline = max;
 
 	const Instructie = () => {
@@ -57,6 +59,37 @@ function TapInput({ max, tapwedstrijdStore }) {
 		}, 100);
 	};
 
+	const touchFunc = () => {
+		setTouch(true);
+		if (isRunning === false) {
+			initTimer();
+		} else {
+			if (aantalTaps < maxTaps) {
+				addTap();
+				if (aantalTaps + 1 === maxTaps) {
+					isRunning = false;
+					stopTimer();
+				}
+			}
+		}
+	};
+
+	const clickFunc = () => {
+		if (touch === false) {
+			if (isRunning === false) {
+				initTimer();
+			} else {
+				if (aantalTaps < maxTaps) {
+					addTap();
+					if (aantalTaps + 1 === maxTaps) {
+						isRunning = false;
+						stopTimer();
+					}
+				}
+			}
+		}
+	};
+
 	return (
 		<>
 			<div className={stylesTapInput.containerGrid}>
@@ -71,20 +104,11 @@ function TapInput({ max, tapwedstrijdStore }) {
 							</div>
 							<div
 								className={stylesTapInput.hitAreaGrid}
+								onTouchStart={() => {
+									touchFunc();
+								}}
 								onClick={() => {
-									if (isRunning === false) {
-										initTimer();
-									} else {
-										if (aantalTaps < maxTaps) {
-											console.log('toevoegen tap');
-											addTap();
-											if (aantalTaps + 1 === maxTaps) {
-												console.log('max bereikt');
-												isRunning = false;
-												stopTimer();
-											}
-										}
-									}
+									clickFunc();
 								}}
 							>
 								<p

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
 
 import stylesUI from '../styles/uiControls.module.css';
 
@@ -49,7 +48,6 @@ class Button extends Component {
 	getDimensions = () => {
 		if (this.buttonRef) {
 			const button = this.buttonRef;
-			console.log('getdimensions', button);
 			this.btnHeight = button.getBoundingClientRect().height;
 			this.btnWidth = button.getBoundingClientRect().width;
 			this.windowWidth = window.innerWidth;
@@ -88,6 +86,7 @@ class Button extends Component {
 	render = () => {
 		return (
 			<div
+				key={this.key}
 				className={stylesUI.buttonCont}
 				onMouseOver={this.handleEnter}
 				onMouseLeave={this.renderOutlineStyle}

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
 
 import stylesUI from '../styles/uiControls.module.css';
 
@@ -39,7 +37,6 @@ class TitleMiddle extends Component {
 	getDimensions = () => {
 		if (this.titleRef) {
 			const title = this.titleRef;
-			console.log('getdimensions', title);
 			this.titleHeight = title.getBoundingClientRect().height;
 			this.windowWidth = window.innerWidth;
 			this.windowHeight = window.innerHeight;

@@ -2,13 +2,13 @@ export const ROUTES = {
 	//home
 	home: `/`,
 	//belofte
-	belofte: `/belofte`,
+	belofte: `/supportificaat`,
 	//supporterslied
 	supporterslied: `/supporterslied`,
 	//tapwedstrijd
-	tapWedstrijd: `/tapwedstrijd`,
+	tapWedstrijd: `/tapstrijd`,
 	//smoothiemaker
-	smoothieMaker: `/smoothiemaker`,
+	smoothieMaker: `/smoothie`,
 	//postkaartjes
 	postkaartje: `/postkaartje`,
 	//quiz

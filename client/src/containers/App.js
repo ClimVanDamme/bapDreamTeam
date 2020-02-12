@@ -1,48 +1,49 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import styles from "../styles/layout.module.css";
-
 import { Helmet } from "react-helmet";
-
 import { ROUTES } from "../constants";
-
 //import containers
 import Home from "./Home";
 import ResultaatContainer from "./ResultaatContainer";
-//
-import Uitleg from "../components/Uitleg";
 import RouteContainer from "./RouteContainer";
-//
-// import Belofte from './Belofte';
 import BelofteContainer from "./BelofteContainer";
 //
-import Supporterslied from "./Supporterslied";
 import OverzichtSupporterslied from "./OverzichtSupporterslied";
 import AudioInput from "./AudioInput";
 //
 //import TapWedstrijd from "./aaTapWedstrijd";
 import TapInput from "./TapInput";
 //
-import SmoothieMaker from "./SmoothieMaker";
 import SmoothieMixer from "./SmoothieMixer";
 //
 import PostkaartStudent from "./PostkaartStudent";
 import PostkaartVakantieganger from "./PostkaartVakantieganger";
 import PostkaartWerkmens from "./PostkaartWerkmens";
+//
+import { CSSTransitionGroup } from "react-transition-group";
+//
 
 class App extends Component {
   render() {
     return (
-      <main className={styles.layout}>
+      <main>
         <Switch>
           {/* HOME */}
           <Route key={1} exact path={ROUTES.home}>
-            <Home />
+            <CSSTransitionGroup
+              transitionName="example"
+              transitionAppear={true}
+              transitionAppearTimeout={500}
+              transitionEnter={false}
+              transitionLeave={false}
+            >
+              <Home />
+            </CSSTransitionGroup>
             <Helmet>
               <title>De Spelen zijn van ons</title>
               <meta
                 name="description"
-                content="Steun de Belgische atleten op de Olympische Spelen 2020 in Tokio. Aangeboden door Sporza."
+                content="Daag je vrienden en familie uit en geef het beste van jezelf tijdens de Olympische Spelen!"
               />
               <meta
                 name="tags"
@@ -58,28 +59,36 @@ class App extends Component {
               {
                 component: "uitleg",
                 path: "",
-                titel: "Olympische Belofte",
+                titel: "Supportificaat",
                 description: "Maak een belofte gedurende de Olympische Spelen.",
                 uitleg:
-                  "Kies welk soort belofte je wilt aangaan met iemand en vul vervolgens de namen ins ;)",
+                  "Kies welke soort belofte je wilt aangaan. En vul vervolgens het supportificaat in. Veel succes!",
                 buttons: [
-                  { label: "Afkick", path: "afkick", img: "afkickImg" },
-                  { label: "Voornemen", path: "voornemen", img: "voornemenImg" }
+                  {
+                    label: "Afkick-tificaat >",
+                    path: "afkick",
+                    img: "afkickImg"
+                  },
+                  {
+                    label: "Voornemen-tificaat >",
+                    path: "voornemen",
+                    img: "voornemenImg"
+                  }
                 ]
               },
               {
                 component: <BelofteContainer soort={"afkick"} />,
                 path: "afkick",
-                titel: "Overzicht fragmenten",
-                description: "100 meter tappen",
+                titel: "Afkick-tificaat",
+                description: "Gedurende de Olympische Spelen iets vermijden.",
                 uitleg: "",
                 buttons: ""
               },
               {
                 component: <BelofteContainer soort={"voornemen"} />,
                 path: "voornemen",
-                titel: "Overzicht fragmenten",
-                description: "100 meter tappen",
+                titel: "Voorneem-tificaat",
+                description: "Gedurende de Olympische Spelen iets doen.",
                 uitleg: "",
                 buttons: ""
               },
@@ -113,7 +122,7 @@ class App extends Component {
                 component: <OverzichtSupporterslied />,
                 path: "overzicht",
                 titel: "Overzicht fragmenten",
-                description: "100 meter tappen",
+                description: "Overzicht van jouw geluidsfragmenten",
                 uitleg: "",
                 buttons: ""
               },
@@ -146,19 +155,27 @@ class App extends Component {
                 path: "",
                 titel: "Tapstrijd",
                 description:
-                  "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
+                  "Tap zo snel mogelijk en haal de beste score van je vrienden!",
                 uitleg:
                   "Kies op welke afstand jij jezelf wilt bewijzen en tap zo snel mogelijk naar de finish!",
                 buttons: [
-                  { label: "100 meter >", path: "100", img: "select_100m@2x" },
-                  { label: "200 meter >", path: "200", img: "select_200m@2x" },
+                  {
+                    label: "100 meter >",
+                    path: "100",
+                    img: "select_100m@2x"
+                  },
+                  {
+                    label: "200 meter >",
+                    path: "200",
+                    img: "select_200m@2x"
+                  },
                   { label: "400 meter >", path: "400", img: "select_400m@2x" }
                 ]
               },
               {
-                component: <TapInput max={5} />,
+                component: <TapInput max={100} />,
                 path: "100",
-                titel: "100m Tapstrijd",
+                titel: "100m Tapwedstrijd",
                 description: "100 meter tappen",
                 uitleg: "",
                 buttons: ""
@@ -166,7 +183,7 @@ class App extends Component {
               {
                 component: <TapInput max={200} />,
                 path: "200",
-                titel: "200m Tapstrijd",
+                titel: "200m Tapwedstrijd",
                 description: "200 meter tappen",
                 uitleg: "",
                 buttons: ""
@@ -174,7 +191,7 @@ class App extends Component {
               {
                 component: <TapInput max={400} />,
                 path: "400",
-                titel: "400m Tapstrijd",
+                titel: "400m Tapwedstrijd",
                 description: "400 meter tappen",
                 uitleg: "",
                 buttons: ""
@@ -203,7 +220,7 @@ class App extends Component {
                   "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
                 uitleg:
                   "Druk op de mix knop en bekijk verrassende combinaties van fruit om in jouw smoothie te steken.",
-                buttons: [{ label: "beginnen", path: "mixer" }]
+                buttons: [{ label: "beginnen >", path: "mixer" }]
               },
               {
                 component: <SmoothieMixer />,
@@ -227,37 +244,34 @@ class App extends Component {
                 titel: "Postkaartje",
                 description: "Stuur iemand een Olympisch postkaartje",
                 uitleg:
-                  "Kies voor welke persoon je een kaartje wilt schrijven, kies daarna uit een kaartje en voeg vervolgens een persoonlijk tekstje op. Het resultaat kan je versturen ;)",
+                  "Kies naar wie je een kaartje wil sturen. Kies je favoriete design en vul een persoonlijk tekstje in.",
                 buttons: [
-                  { label: "student", path: "student" },
-                  { label: "vakantieganger", path: "vakantieganger" },
-                  { label: "werkmens", path: "werkmens" }
+                  { label: "de blokkende student >", path: "student" },
+                  { label: "de vakantieganger >", path: "vakantieganger" },
+                  { label: "de altijd-werker >", path: "werkmens" }
                 ]
               },
               {
                 component: <PostkaartStudent />,
                 path: "student",
-                titel: "Smoothie Mixer",
-                description:
-                  "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
+                titel: "De blokkende student",
+                description: "Maak een kaartje voor een blokkende student.",
                 uitleg: "",
                 buttons: ""
               },
               {
                 component: <PostkaartVakantieganger />,
                 path: "vakantieganger",
-                titel: "Smoothie Mixer",
-                description:
-                  "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
+                titel: "De vakantieganger",
+                description: "Maak een kaartje voor iemand op vakantie.",
                 uitleg: "",
                 buttons: ""
               },
               {
                 component: <PostkaartWerkmens />,
                 path: "werkmens",
-                titel: "Smoothie Mixer",
-                description:
-                  "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
+                titel: "De altijd-werker",
+                description: "Maak een kaartje voor iemand die altijd werkt.",
                 uitleg: "",
                 buttons: ""
               },

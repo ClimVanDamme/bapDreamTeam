@@ -112,7 +112,7 @@ function TapInput({ max, tapwedstrijdStore }) {
             <Button
               keyValue={uuid()}
               color={"primary"}
-              link={`/tapwedstrijd/resultaat`}
+              link={`/tapstrijd/resultaat`}
               label={"Delen >"}
             />
           ) : (

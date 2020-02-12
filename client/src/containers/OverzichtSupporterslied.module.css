@@ -1,10 +1,12 @@
-.roundButton {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
+.contentContainer {
+}
+
+.roundBtn {
+	width: 5rem;
+	height: 5rem;
 }
 
 .titleMiddle {
-  /* composes: .titleMiddle from "../styles/typo.module.css"; */
-  font-size: 7.5rem;
+	/* composes: .titleMiddle from "../styles/typo.module.css"; */
+	font-size: 7.5rem;
 }

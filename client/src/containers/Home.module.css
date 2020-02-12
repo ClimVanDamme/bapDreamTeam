@@ -44,7 +44,7 @@
 	align-items: center;
 	height: min-content;
 }
-
+/* 
 @media L {
 	.headerImg {
 		grid-area: image;
@@ -68,7 +68,7 @@
 		width: auto;
 		margin: 0 auto;
 	}
-}
+} */
 
 /* .headerImg {
 	grid-area: image;

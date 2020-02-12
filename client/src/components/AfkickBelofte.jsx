@@ -1,6 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 const AfkickBelofte = ({ initiate, belofteStore }) => {
 	const textInputOne = React.createRef();
@@ -20,6 +21,7 @@ const AfkickBelofte = ({ initiate, belofteStore }) => {
 	if (errorText != '') {
 		return (
 			<>
+				<Navigation href={'/supportificaat'} />
 				<section>
 					<h1>Welkom op Sporza.</h1>
 					<form>
@@ -92,6 +94,7 @@ const AfkickBelofte = ({ initiate, belofteStore }) => {
 	) {
 		return (
 			<>
+				<Navigation href={'/supportificaat'} />
 				<section>
 					<h1>Welkom op Sporza.</h1>
 					<form>
@@ -157,6 +160,7 @@ const AfkickBelofte = ({ initiate, belofteStore }) => {
 
 	return (
 		<>
+			<Navigation href={'/supportificaat'} />
 			<section>
 				<h1>Welkom op Sporza.</h1>
 				<form>
@@ -202,7 +206,7 @@ const AfkickBelofte = ({ initiate, belofteStore }) => {
 						/>
 						<p>wanneer ik mij niet hou aan deze belofte.</p>
 					</div>
-					<Link to={`/belofte/resultaat`}>
+					<Link to={`/supportificaat/resultaat`}>
 						<input type='submit' value='Onderteken' />
 					</Link>
 				</form>

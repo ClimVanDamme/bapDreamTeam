@@ -5,13 +5,15 @@ import { inject, observer } from 'mobx-react';
 import { ROUTES } from '../constants';
 import { Link } from 'react-router-dom';
 
+import Navigation from '../components/Navigation';
+
 const AudioInput = ({ supportersliedStore }) => {
 	const { clearAudio } = supportersliedStore;
 	return (
 		<>
-			<Link to={`${ROUTES.supporterslied}/overzicht`}>
-				<button onClick={() => clearAudio()}>Terug naar compositie</button>
-			</Link>
+			<div onClick={() => clearAudio()}>
+				<Navigation href={'/supporterslied/overzicht'} />
+			</div>
 			<Recorder layer='One'></Recorder>
 		</>
 	);

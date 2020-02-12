@@ -79,16 +79,16 @@ class App extends Component {
 							{
 								component: <BelofteContainer soort={'afkick'} />,
 								path: 'afkick',
-								titel: 'Overzicht fragmenten',
-								description: '100 meter tappen',
+								titel: 'Afkick-tificaat',
+								description: 'Gedurende de Olympische Spelen iets vermijden.',
 								uitleg: '',
 								buttons: ''
 							},
 							{
 								component: <BelofteContainer soort={'voornemen'} />,
 								path: 'voornemen',
-								titel: 'Overzicht fragmenten',
-								description: '100 meter tappen',
+								titel: 'Voorneem-tificaat',
+								description: 'Gedurende de Olympische Spelen iets doen.',
 								uitleg: '',
 								buttons: ''
 							},
@@ -122,7 +122,7 @@ class App extends Component {
 								component: <OverzichtSupporterslied />,
 								path: 'overzicht',
 								titel: 'Overzicht fragmenten',
-								description: '100 meter tappen',
+								description: 'Overzicht van jouw geluidsfragmenten',
 								uitleg: '',
 								buttons: ''
 							},

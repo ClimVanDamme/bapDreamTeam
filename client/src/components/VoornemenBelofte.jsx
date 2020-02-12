@@ -1,11 +1,13 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import Navigation from '../components/Navigation';
 
 const VoornemenBelofte = ({ initiate }) => {
 	const textInput = React.createRef();
 
 	return (
 		<>
+			<Navigation href={'/supportificaat'} />
 			<section>
 				<h1>Welkom op Sporza.</h1>
 				<form onSubmit={e => initiate(e, textInput)}>

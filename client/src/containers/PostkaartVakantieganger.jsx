@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants';
 import PostkaartInput from '../components/PostkaartInput';
 import PostkaartKeuzes from '../components/PostkaartKeuzes';
+import Navigation from '../components/Navigation';
 
 const PostkaartVakantieganger = () => {
 	let gekozenTemplate = null;
@@ -29,14 +30,17 @@ const PostkaartVakantieganger = () => {
 	};
 
 	return (
-		<div>
-			<PostkaartKeuzes
-				doelgroep={'vakantieganger'}
-				gekozenKaart={gekozenKaart}
-			/>
-			<PostkaartInput handleInputChange={handleInputChange} />
-			<button onClick={verzend}>Verzend</button>
-		</div>
+		<>
+			<Navigation href={'/postkaartje'} />
+			<div>
+				<PostkaartKeuzes
+					doelgroep={'vakantieganger'}
+					gekozenKaart={gekozenKaart}
+				/>
+				<PostkaartInput handleInputChange={handleInputChange} />
+				<button onClick={verzend}>Verzend</button>
+			</div>
+		</>
 	);
 };
 

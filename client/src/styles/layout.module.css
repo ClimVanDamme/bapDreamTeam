@@ -42,6 +42,26 @@
 	}
 }
 
+.example-appear {
+	opacity: 0.01;
+	transform: translateX(-1.5rem);
+}
+
+.example-appear.example-appear-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 0.5s ease-in, transform 0.5s ease-in-out;
+}
+
+.example-leave {
+	opacity: 1;
+}
+
+.example-leave.example-leave-active {
+	opacity: 0.01;
+	transition: opacity 300ms ease-in;
+}
+
 /* .layout {
 	max-width: 100%;
 	margin: 2rem auto 0 auto;

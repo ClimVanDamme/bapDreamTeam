@@ -1,0 +1,46 @@
+.resultImg {
+  width: 120rem;
+  height: auto;
+}
+
+.resultImgWrap {
+  align-self: center;
+  grid-area: resultImg;
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+  height: 100vw;
+  grid-template-areas: ". content .";
+}
+
+.content {
+  grid-area: content;
+
+  display: grid;
+  grid-template-columns: 1fr 50vw 40vw 1fr;
+  grid-template-rows: auto 50vw auto;
+  width: 100%;
+  height: 50vw;
+  grid-template-areas:
+    ". resultImg title ."
+    ". resultImg downloadWrapper.";
+}
+
+.downloadWrapper {
+  grid-area: downloadWrapper;
+}
+
+.title {
+  grid-area: title;
+}
+
+.canvas {
+  grid-column: 0;
+  grid-row: 0;
+
+  display: none;
+}

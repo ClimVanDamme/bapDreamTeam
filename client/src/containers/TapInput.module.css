@@ -1,0 +1,58 @@
+/* style={{
+    cursor: "pointer",
+    width: "30rem",
+    height: "30rem",
+    backgroundColor: "grey",
+    paddingTop: "1rem"
+  }} */
+
+.hitAreaGrid {
+  margin: 0 auto;
+  cursor: pointer;
+  width: 40vw;
+  height: 40vw;
+  min-width: 27rem;
+  min-height: 27rem;
+  background-image: url("/assets/img/tapBg.svg");
+  padding-top: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30% 40% 1fr;
+  grid-template-areas:
+    "."
+    "timer"
+    "info";
+
+  justify-items: center;
+}
+
+.passedTime {
+  grid-area: timer;
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+  grid-template-areas: ". content .";
+}
+
+.content {
+  grid-area: content;
+}
+
+.info {
+  grid-area: info;
+  color: white;
+  font-weight: 500;
+  user-select: none;
+}
+
+.buttonWrapper {
+  margin: 0 auto;
+  display: flex;
+  max-width: 50rem;
+  justify-content: space-between;
+}

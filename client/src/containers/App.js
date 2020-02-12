@@ -144,7 +144,7 @@ class App extends Component {
               {
                 component: "uitleg",
                 path: "",
-                titel: "Tapwedstrijd",
+                titel: "Tapstrijd",
                 description:
                   "Laat je inspireren voor een frisse, gezonde en Belgische smoothie!",
                 uitleg:
@@ -156,9 +156,9 @@ class App extends Component {
                 ]
               },
               {
-                component: <TapInput max={100} />,
+                component: <TapInput max={5} />,
                 path: "100",
-                titel: "100m Tapwedstrijd",
+                titel: "100m Tapstrijd",
                 description: "100 meter tappen",
                 uitleg: "",
                 buttons: ""
@@ -166,7 +166,7 @@ class App extends Component {
               {
                 component: <TapInput max={200} />,
                 path: "200",
-                titel: "200m Tapwedstrijd",
+                titel: "200m Tapstrijd",
                 description: "200 meter tappen",
                 uitleg: "",
                 buttons: ""
@@ -174,7 +174,7 @@ class App extends Component {
               {
                 component: <TapInput max={400} />,
                 path: "400",
-                titel: "400m Tapwedstrijd",
+                titel: "400m Tapstrijd",
                 description: "400 meter tappen",
                 uitleg: "",
                 buttons: ""

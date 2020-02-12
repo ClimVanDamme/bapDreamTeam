@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
 
 import stylesUI from '../styles/uiControls.module.css';
 

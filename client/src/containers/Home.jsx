@@ -1,10 +1,5 @@
-import React, { useRef, Component } from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
-
-import styles from './Home.module.css';
+import React, { Component } from 'react';
 import HomeChallenge from '../components/HomeChallenge';
-import stylesLayout from '../styles/layout.module.css';
 import stylesHome from './Home.module.css';
 
 import Button from '../components/Button';
@@ -18,6 +13,7 @@ const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
 
 class Home extends Component {
 	vh;
+	vw;
 
 	constructor(props) {
 		super(props);
@@ -32,9 +28,10 @@ class Home extends Component {
 	};
 
 	getDimensions = () => {
-		this.vh = window.innerHeight * 0.01;
-		console.log('RESPONSIVE HOME HEADER!!!');
+		this.vh = (window.innerHeight - 100) * 0.01;
+		this.vw = (window.innerWidth - 100) * 0.01;
 		document.documentElement.style.setProperty('--vh', `${this.vh}px`);
+		document.documentElement.style.setProperty('--vw', `${this.vw}px`);
 	};
 
 	scrollToLatest = () => {
@@ -61,14 +58,14 @@ class Home extends Component {
 					<div className={stylesHome.headerText}>
 						<p>
 							De Belgische atleten geven het beste van zichzelf op de Spelen in
-							Tokio. Da de Olympische uitdagingen aan en daag zoveel mogelijk
-							mensen uit. En toon zo dat we achter Team Belgium staan!
+							Tokio. Ga de Olympische uitdagingen aan en daag zoveel mogelijk
+							mensen uit. Toon zo dat we achter Team Belgium staan!
 						</p>
 						<div className={stylesHome.headerBtn}>
 							<div onClick={this.scrollToLatest}>
 								<Button
 									keyValue={uuid()}
-									label={'ga naar nieuwste opdracht'}
+									label={'ga naar laatste uitdaging'}
 									color={'secondary'}
 									link={''}
 								/>
@@ -97,10 +94,10 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<HomeChallenge
-								challenge={'belofte'}
+								challenge={'supportificaat'}
 								direction={'links'}
 								unlockDate={'23 juli'}
 							/>
@@ -110,7 +107,7 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<HomeChallenge
 								challenge={'supporterslied'}
@@ -123,7 +120,7 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<HomeChallenge
 								challenge={'postkaartje'}
@@ -136,11 +133,11 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<div ref={this.latest}>
 								<HomeChallenge
-									challenge={'tapwedstrijd'}
+									challenge={'tapstrijd'}
 									direction={'rechts'}
 									unlockDate={'1 augustus'}
 								/>
@@ -151,10 +148,10 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<HomeChallenge
-								challenge={'quiz'}
+								challenge={'smoothie'}
 								direction={'links'}
 								unlockDate={'4 augustus'}
 							/>
@@ -164,10 +161,10 @@ class Home extends Component {
 							transitionAppear={true}
 							transitionAppearTimeout={500}
 							transitionEnter={false}
-							transitionLeave={true}
+							transitionLeave={false}
 						>
 							<HomeChallenge
-								challenge={'smoothie'}
+								challenge={'Quiz'}
 								direction={'links'}
 								unlockDate={'7 augustus'}
 							/>

@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
+import React from 'react';
 import * as uuid from 'uuid/v4';
 //
 import Button from '../components/Button';
-import Title from '../components/Title';
 import TitleMiddle from '../components/TitleMiddle';
 //
 import style from '../containers/Home.module.css';

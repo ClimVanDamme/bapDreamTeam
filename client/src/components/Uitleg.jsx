@@ -1,9 +1,7 @@
-import React from 'react';
-import { inject, observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Button from './Button';
-import Title from './Title';
 import * as uuid from 'uuid/v4';
 import TitleMiddle from '../components/TitleMiddle';
 
@@ -11,6 +9,12 @@ import styleUitleg from './Uitleg.module.css';
 import styleUI from '../styles/uiControls.module.css';
 
 const Uitleg = ({ path, titel, uitleg, buttons }) => {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	console.log('in uitleg');
 	console.log(titel);
 	console.log(buttons);
@@ -19,7 +23,7 @@ const Uitleg = ({ path, titel, uitleg, buttons }) => {
 		<div className={styleUitleg.containerGrid}>
 			<section className={styleUitleg.content}>
 				<div className={styleUitleg.textPart}>
-					<TitleMiddle keyValue={uuid()} text='Supporterslied.' />
+					<TitleMiddle keyValue={uuid()} text={titel} />
 					<div className={styleUI.tussenTitelCont}>
 						<h2 className={styleUI.visuallyHidden}>Hoe werkt het?</h2>
 					</div>
@@ -29,7 +33,7 @@ const Uitleg = ({ path, titel, uitleg, buttons }) => {
 					<ul className={styleUitleg.selectionContainer}>
 						{buttons.map((button, index) => {
 							return (
-								<li className={`${styleUitleg.btnCont}${index}`} key={index}>
+								<li className={`${styleUitleg.btnCont}${index}`} key={uuid()}>
 									<div className={styleUitleg.imgCenter}>
 										<img
 											className={styleUitleg.btnImg}

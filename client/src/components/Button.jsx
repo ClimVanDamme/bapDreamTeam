@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
 
 import stylesUI from '../styles/uiControls.module.css';
 
@@ -87,6 +86,7 @@ class Button extends Component {
 	render = () => {
 		return (
 			<div
+				key={this.key}
 				className={stylesUI.buttonCont}
 				onMouseOver={this.handleEnter}
 				onMouseLeave={this.renderOutlineStyle}

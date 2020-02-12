@@ -1,39 +1,15 @@
 @value XS, S, M, L, XL from "../styles/layout.module.css";
 
-.fade .hide {
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 3s;
-}
-
-.fade {
-	background-color: red;
-	transition: opacity 3s;
-}
-
 .textOutline {
 	composes: textOutline from '../styles/typo.module.css';
 }
-
-/* @media bp-large {
-	.headerGrid {
-		display: grid;
-		grid-template-columns: 2fr auto 1fr auto 2fr;
-		grid-template-rows: 1fr auto 1fr 1fr;
-		grid-template-areas:
-			'. . . . .'
-			'. image . text .'
-			'. . . . .'
-			'scroll scroll scroll scroll scroll';
-		height: 100vh;
-	}
-} */
 
 .headerTitle {
 	margin: 0 auto;
 	width: max-content;
 	grid-area: title;
 	align-self: flex-end;
+	height: max-content;
 }
 
 .headerText {
@@ -44,37 +20,6 @@
 	align-items: center;
 	height: min-content;
 }
-/* 
-@media L {
-	.headerImg {
-		grid-area: image;
-		height: 80vh;
-		width: auto;
-	}
-}
-
-@media S {
-	.headerImg {
-		grid-area: image;
-		height: 40rem;
-		width: auto;
-	}
-}
-
-@media XS {
-	.headerImg {
-		grid-area: image;
-		height: 50vwrem;
-		width: auto;
-		margin: 0 auto;
-	}
-} */
-
-/* .headerImg {
-	grid-area: image;
-	height: 80vh;
-	width: auto;
-} */
 
 .headerBtn {
 	height: 5rem;
@@ -117,15 +62,15 @@
 }
 
 .headerO {
-	color: var(--gray-color);
+	color: #1a1a1a;
 }
 
 .headerN {
-	color: yellow;
+	color: #e6b657;
 }
 
 .headerS {
-	color: red;
+	color: #d05e46;
 }
 
 @media XL {
@@ -183,7 +128,7 @@
 	.headerImg {
 		grid-area: image;
 		height: auto;
-		width: 40vw;
+		width: calc(var(--vw, 1vw) * 35);
 		margin: 0 auto;
 	}
 	.headerScroll {
@@ -198,7 +143,7 @@
 		width: 50rem;
 		margin: auto 0;
 		margin-top: 3rem;
-		margin-bottom: 3vw;
+		margin-bottom: 3rem;
 	}
 }
 
@@ -221,13 +166,13 @@
 		width: 41rem;
 		text-align: center;
 		margin: 0 auto;
-		margin-top: 2vh;
-		margin-bottom: 5vh;
+		margin-top: 2rem;
+		margin-bottom: 5rem;
 	}
 	.headerImg {
 		grid-area: image;
 		height: auto;
-		width: 40vw;
+		width: calc(var(--vh, 1vw) * 40);
 		margin: 0 auto;
 	}
 	.headerScroll {
@@ -248,7 +193,7 @@
 	.headerGrid {
 		display: grid;
 		grid-template-columns: 1.6rem 1fr 1.6rem;
-		grid-template-rows: 1.6rem max-content 2fr 1fr min-content;
+		grid-template-rows: 1rem max-content 2fr 1fr min-content;
 		grid-template-areas:
 			'. . .'
 			'. title .'
@@ -263,11 +208,12 @@
 		width: 90vw;
 		margin: 0 auto;
 		margin-top: 0;
-		margin-bottom: 3vh;
+		margin-bottom: 3rem;
 	}
 	.headerImg {
 		grid-area: image;
-		height: 100%;
+		/* height: 100%; */
+		height: calc(var(--vh, 1vh) * 60);
 		width: auto;
 		margin: 0 auto;
 	}
@@ -304,8 +250,7 @@
 	}
 	.headerImg {
 		grid-area: image;
-		height: 100%;
-		max-height: 37vh;
+		height: calc(var(--vh, 1vh) * 37);
 		width: auto;
 		margin: 0 auto;
 	}
@@ -345,7 +290,7 @@
 		'btn';
 	grid-template-columns: auto;
 	grid-template-rows: auto auto;
-	row-gap: 2vw;
+	row-gap: 4vw;
 }
 
 .challengeTitle {

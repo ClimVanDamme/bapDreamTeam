@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
 
 const SmoothieMixer = () => {
 	const margin = { margin: '2rem 0' };

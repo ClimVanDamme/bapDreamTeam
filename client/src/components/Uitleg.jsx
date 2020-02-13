@@ -39,20 +39,24 @@ const Uitleg = ({ path, titel, uitleg, buttons }) => {
                   <li className={`${styleUitleg.btnCont}${index}`} key={uuid()}>
                     <div className={styleUitleg.imgCenter}>
                       <Link to={`${path}/${button.path}`}>
-                        <picture className={styleUitleg.btnImg}>
-                          <source
-                            type="image/png"
-                            srcset={
-                              (`assets/img/${button.img}_256.png 256w`,
-                              `assets/img/${button.img}_702.png 702w`)
-                            }
-                          />
-                          <img
-                            className={styleUitleg.btnImg}
-                            src={`..assets/img/${button.img}_256.png`}
-                            alt={`${button.img}`}
-                          />
-                        </picture>
+                        {button.img != undefined ? (
+                          <picture className={styleUitleg.btnImg}>
+                            <source
+                              type="image/png"
+                              srcset={
+                                (`assets/img/${button.img}_256.png 256w`,
+                                `assets/img/${button.img}_702.png 702w`)
+                              }
+                            />
+                            <img
+                              className={styleUitleg.btnImg}
+                              src={`..assets/img/${button.img}_256.png`}
+                              alt={`${button.img}`}
+                            />
+                          </picture>
+                        ) : (
+                          <></>
+                        )}
                       </Link>
                     </div>
                     <div className={styleUitleg.btnCenter}>

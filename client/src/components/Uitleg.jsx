@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import Button from './Button';
 import * as uuid from 'uuid/v4';
@@ -38,13 +38,15 @@ const Uitleg = ({ path, titel, uitleg, buttons }) => {
 								return (
 									<li className={`${styleUitleg.btnCont}${index}`} key={uuid()}>
 										<div className={styleUitleg.imgCenter}>
-											<img
-												className={styleUitleg.btnImg}
-												src={`./assets/img/${button.img}.png`}
-												alt=''
-												width='72'
-												height='72'
-											/>
+											<Link to={`${path}/${button.path}`}>
+												<img
+													className={styleUitleg.btnImg}
+													src={`./assets/img/${button.img}.png`}
+													alt=''
+													width='72'
+													height='72'
+												/>
+											</Link>
 										</div>
 										<div className={styleUitleg.btnCenter}>
 											<Button

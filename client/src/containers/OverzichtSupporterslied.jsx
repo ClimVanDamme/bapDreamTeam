@@ -8,7 +8,7 @@ import Title from '../components/Title';
 import { ROUTES } from '../constants';
 import { Link } from 'react-router-dom';
 
-import stylesOverzichtSupporterslied from './OverzichtSupporterslied.module.css';
+import styles from './OverzichtSupporterslied.module.css';
 import TitleMiddle from '../components/TitleMiddle';
 
 import Navigation from '../components/Navigation';
@@ -111,13 +111,13 @@ const OverzichtSupporterslied = ({ supportersliedStore }) => {
 			<Navigation href={'/supporterslied'} />
 			<TitleMiddle keyValue={uuid()} text='Supporterslied.' />
 			<p>Maak een nieuw geluidsfragment</p>
-			<Button
-				className={stylesOverzichtSupporterslied.roundButton}
-				keyValue={uuid()}
-				color={'secondary'}
-				link={`${ROUTES.supporterslied}/opnemen`}
-				label={'+'}
-			/>
+			<Link to={'/supporterslied/opnemen'}>
+				<img
+					className={styles.roundBtn}
+					src='../assets/img/btn_add.svg'
+					alt=''
+				/>
+			</Link>
 		</>
 	);
 };

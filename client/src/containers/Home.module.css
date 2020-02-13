@@ -46,19 +46,7 @@
 }
 
 .scrollText {
-	animation: blink 8s infinite ease-in-out;
-}
-
-@keyframes blink {
-	0% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+	animation: shuffle 2s infinite ease-in-out;
 }
 
 .headerO {
@@ -107,6 +95,7 @@
 		margin: auto 0;
 		margin-top: 3rem;
 		margin-bottom: 3vw;
+		text-align: center;
 	}
 }
 
@@ -144,6 +133,7 @@
 		margin: auto 0;
 		margin-top: 3rem;
 		margin-bottom: 3rem;
+		text-align: center;
 	}
 }
 
@@ -533,4 +523,8 @@
 			'text';
 		margin-bottom: 15rem;
 	}
+}
+
+.hidden {
+	visibility: hidden;
 }

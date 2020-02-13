@@ -1,104 +1,104 @@
 /* @value XS, S, M, L from "./layout.module.css"; */
 
 :root {
-  --font-base: 1.6rem;
+	--font-base: 1.6rem;
 }
 
 .titleOutline {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  text-align: center;
-  color: transparent;
-  -webkit-text-stroke: 0.1rem black;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	text-align: center;
+	color: transparent;
+	-webkit-text-stroke: 0.15rem black;
 }
 
 .titleMiddleOutline {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  text-align: left;
-  color: transparent;
-  margin-left: 0.3rem;
-  -webkit-text-stroke: 0.1rem black;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	text-align: left;
+	color: transparent;
+	margin-left: 0.3rem;
+	-webkit-text-stroke: 0.15rem black;
 }
 
 .titleSmallOutline {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  text-align: left;
-  color: transparent;
-  margin-left: 0.3rem;
-  -webkit-text-stroke: 0.1rem black;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	text-align: left;
+	color: transparent;
+	margin-left: 0.3rem;
+	-webkit-text-stroke: 0.15rem black;
 }
 
 .titleMini {
-  display: block;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  font-weight: 300;
-  margin-bottom: 0.7rem;
+	display: block;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	font-weight: 300;
+	margin-bottom: 0.7rem;
 }
 
 .titleMiddle {
-  font-size: 7.5rem;
+	font-size: 7.5rem;
 }
 
 .paragraphs {
-  font-size: var(--font-base);
-  line-height: 1.3;
-  font-weight: 400;
+	font-size: var(--font-base);
+	line-height: 1.3;
+	font-weight: 400;
 }
 .paragraphs p {
-  margin: 1.4rem 0;
+	margin: 1.4rem 0;
 }
 
 h1 {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  color: var(--green-color);
-  text-align: center;
-  height: auto;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	color: var(--green-color);
+	text-align: center;
+	height: auto;
 }
 
 .middleTitle {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  color: var(--green-color);
-  text-align: left;
-  height: auto;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	color: var(--green-color);
+	text-align: left;
+	height: auto;
 }
 
 .smallTitle {
-  font-family: "roboto condensed";
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-  color: white;
-  text-align: left;
-  height: auto;
+	font-family: 'roboto condensed';
+	font-weight: 700;
+	font-style: italic;
+	text-transform: uppercase;
+	color: white;
+	text-align: left;
+	height: auto;
 }
 
 h2 {
-  font-family: "roboto condensed";
-  font-weight: 300;
-  font-style: italic;
-  text-transform: uppercase;
-  font-size: 2rem;
+	font-family: 'roboto condensed';
+	font-weight: 300;
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 2rem;
 }
 
 p {
-  font-family: "roboto condensed";
-  font-weight: lighter;
-  font-size: 1.6rem;
-  color: var(--gray-color);
-  line-height: 2.5rem;
+	font-family: 'roboto condensed';
+	font-weight: lighter;
+	font-size: 1.6rem;
+	color: var(--gray-color);
+	line-height: 2.5rem;
 }

@@ -1,58 +1,214 @@
-/* style={{
-    cursor: "pointer",
-    width: "30rem",
-    height: "30rem",
-    backgroundColor: "grey",
-    paddingTop: "1rem"
-  }} */
+@value XS, S, M, L, XL from "../styles/layout.module.css";
 
-.hitAreaGrid {
-  margin: 0 auto;
-  cursor: pointer;
-  width: 40vw;
-  height: 40vw;
-  min-width: 27rem;
-  min-height: 27rem;
-  background-image: url("/assets/img/tapBg.svg");
-  padding-top: 1rem;
+@media XL {
+	.containerGrid {
+		display: grid;
+		grid-template-columns: 1fr 80vw 1fr;
+		grid-template-rows: auto;
+		width: 100%;
+		grid-template-areas: '. content .';
+	}
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 30% 40% 1fr;
-  grid-template-areas:
-    "."
-    "timer"
-    "info";
+	.content {
+		grid-area: content;
+	}
 
-  justify-items: center;
+	.hitAreaGrid {
+		margin: 0 auto;
+		cursor: pointer;
+		width: 40vw;
+		height: 40vw;
+		background-image: url('/assets/img/tapBg.svg');
+		padding-top: 1rem;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 30% 40% 1fr;
+		grid-template-areas:
+			'.'
+			'timer'
+			'info';
+
+		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@media L {
+	.containerGrid {
+		display: grid;
+		grid-template-columns: 1fr 85vw 1fr;
+		grid-template-rows: auto;
+		width: 100%;
+		grid-template-areas: '. content .';
+	}
+
+	.content {
+		grid-area: content;
+	}
+
+	.hitAreaGrid {
+		margin: 0 auto;
+		cursor: pointer;
+		width: 45vw;
+		height: 45vw;
+		background-image: url('/assets/img/tapBg.svg');
+		padding-top: 1rem;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 30% 40% 1fr;
+		grid-template-areas:
+			'.'
+			'timer'
+			'info';
+
+		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@media M {
+	.containerGrid {
+		display: grid;
+		grid-template-columns: 1fr 90vw 1fr;
+		grid-template-rows: auto;
+		width: 100%;
+		grid-template-areas: '. content .';
+	}
+
+	.content {
+		grid-area: content;
+	}
+
+	.hitAreaGrid {
+		margin: 0 auto;
+		cursor: pointer;
+		width: 65vw;
+		height: 65vw;
+		background-image: url('/assets/img/tapBg.svg');
+		padding-top: 1rem;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 30% 40% 1fr;
+		grid-template-areas:
+			'.'
+			'timer'
+			'info';
+
+		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@media S {
+	.containerGrid {
+		display: grid;
+		grid-template-columns: 1fr 95vw 1fr;
+		grid-template-rows: auto;
+		width: 100%;
+		grid-template-areas: '. content .';
+	}
+
+	.content {
+		grid-area: content;
+	}
+
+	.hitAreaGrid {
+		margin: 0 auto;
+		cursor: pointer;
+		width: 80vw;
+		height: 80vw;
+		background-image: url('/assets/img/tapBg.svg');
+		padding-top: 1rem;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 30% 40% 1fr;
+		grid-template-areas:
+			'.'
+			'timer'
+			'info';
+
+		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@media XS {
+	.containerGrid {
+		display: grid;
+		grid-template-columns: 1fr 98vw 1fr;
+		grid-template-rows: auto;
+		width: 100%;
+		grid-template-areas: '. content .';
+	}
+
+	.content {
+		grid-area: content;
+	}
+
+	.hitAreaGrid {
+		margin: 0 auto;
+		cursor: pointer;
+		width: 80vw;
+		height: 80vw;
+		background-image: url('/assets/img/tapBg.svg');
+		padding-top: 1rem;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 25% 42% 1fr;
+		grid-template-areas:
+			'.'
+			'timer'
+			'info';
+
+		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+.inputGrid {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: min-content auto;
+	grid-template-areas:
+		'nav'
+		'input';
+}
+
+.nav {
+	grid-area: nav;
+}
+
+.officialGrid {
+	grid-area: input;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: min-content auto min-content;
 }
 
 .passedTime {
-  grid-area: timer;
-}
-
-.containerGrid {
-  display: grid;
-  grid-template-columns: 1fr 80vw 1fr;
-  grid-template-rows: auto;
-  width: 100%;
-  grid-template-areas: ". content .";
-}
-
-.content {
-  grid-area: content;
+	grid-area: timer;
 }
 
 .info {
-  grid-area: info;
-  color: white;
-  font-weight: 500;
-  user-select: none;
+	grid-area: info;
+	color: white;
+	font-weight: 500;
+	user-select: none;
 }
 
 .buttonWrapper {
-  margin: 0 auto;
-  display: flex;
-  max-width: 50rem;
-  justify-content: space-between;
+	margin: 0 auto;
+	display: flex;
+	width: 27rem;
+	justify-content: space-between;
 }

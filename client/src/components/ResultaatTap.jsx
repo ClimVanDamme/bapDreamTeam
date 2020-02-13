@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { inject, observer } from "mobx-react";
+import { useLocation } from "react-router-dom";
 
 import stylesResultaatTap from "./ResultaatTap.module.css";
 import stylesUI from "../styles/uiControls.module.css";
@@ -8,6 +9,7 @@ import Button from "../components/Button";
 import * as uuid from "uuid/v4";
 
 import TitleMiddle from "../components/TitleMiddle";
+import Navigation from "../components/Navigation";
 
 const ResultaatTap = ({ tapwedstrijdStore }) => {
   const { maxTaps, finalTime } = tapwedstrijdStore;
@@ -17,9 +19,12 @@ const ResultaatTap = ({ tapwedstrijdStore }) => {
   const result = React.createRef();
   const download = React.createRef();
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     initiateCanvas();
-  });
+  }, [pathname]);
 
   const setDPI = (canvas, dpi) => {
     // Set up CSS size.
@@ -120,53 +125,63 @@ const ResultaatTap = ({ tapwedstrijdStore }) => {
   return (
     <>
       <div className={stylesResultaatTap.containerGrid}>
-        <section className={stylesResultaatTap.content}>
-          <div className={stylesResultaatTap.title}>
-            <TitleMiddle keyValue={uuid()} text="Tapstrijd." />
-          </div>
-          <canvas
-            className={`${stylesUI.visuallyHidden} ${stylesResultaatTap.canvas}`}
-            ref={canvas}
-            width={1200}
-            height={1000}
-          ></canvas>
-
-          <div className={stylesResultaatTap.resultImgWrap}>
-            <img
-              className={stylesResultaatTap.resultImg}
-              ref={result}
-              src=""
-              alt="resultaat"
-            />
-          </div>
-
-          <div className={stylesResultaatTap.downloadWrapper}>
-            <p>
-              Sla je resultaat op en deel op social media via de hashtag
-              #supporterslied en @sporza
-            </p>
-            <button
-              onClick={() => {
-                download.current.click();
-              }}
-            >
+        <div className={stylesResultaatTap.nav}>
+          <Navigation href={"/tapstrijd/100"} />
+        </div>
+        <div className={stylesResultaatTap.content}>
+          <section className={stylesResultaatTap.resultaatCont}>
+            <div className={stylesResultaatTap.title}>
+              <TitleMiddle keyValue={uuid()} text="Tapstrijd." />
+            </div>
+            <div className={stylesResultaatTap.resultImgCont}>
+              <img
+                className={stylesResultaatTap.resultImg}
+                ref={result}
+                src=""
+                alt="resultaat"
+              />
+            </div>
+            <div className={stylesResultaatTap.shareText}>
+              <p>
+                Sla je resultaat op en deel op social media via de hashtag
+                #supporterslied en @sporza
+              </p>
+            </div>
+            <div className={stylesResultaatTap.buttonsCont}>
+              <button
+                className={stylesResultaatTap.downloadBtn}
+                onClick={() => {
+                  download.current.click();
+                }}
+              >
+                <Button
+                  keyValue={uuid()}
+                  color={"primary"}
+                  label={"Downloaden >"}
+                />
+                <a
+                  className={stylesUI.visuallyHidden}
+                  ref={download}
+                  download="score.jpg"
+                  href="/"
+                  title="score"
+                ></a>
+              </button>
               <Button
                 keyValue={uuid()}
                 color={"secondary"}
-                label={"Downloaden >"}
+                label={"Terug naar home >"}
+                link={"/"}
               />
-            </button>
-            <a
-              className={stylesUI.visuallyHidden}
-              ref={download}
-              download="score.jpg"
-              href="/"
-              title="score"
-            >
-              download
-            </a>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
+        <canvas
+          className={`${stylesUI.visuallyHidden} ${stylesResultaatTap.canvas}`}
+          ref={canvas}
+          width={1200}
+          height={1000}
+        ></canvas>
       </div>
     </>
   );

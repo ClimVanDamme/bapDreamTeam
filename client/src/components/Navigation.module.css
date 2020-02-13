@@ -10,6 +10,13 @@
 .backBtn {
 	width: 3rem;
 	height: 3rem;
+	transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.backBtn:hover {
+	width: 3.5rem;
+	height: 3.5rem;
+	transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 
 .arrowImg {
@@ -22,7 +29,11 @@
 	font-style: italic;
 	font-size: 1.4rem;
 	color: black;
+	border-bottom: none;
+	transition: border-bottom 0.2s ease-in-out;
 }
 
-.homeBtn {
+.text:hover {
+	border-bottom: solid 0.1rem black;
+	transition: font-size 0.2s ease-in-out;
 }

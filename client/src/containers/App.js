@@ -116,7 +116,9 @@ class App extends Component {
                   "Maak je eigen supporterslied om de Belgische atleten op de Olympische Spelen aan te moedigen!",
                 uitleg:
                   "Laat horen hoe jij iemand aanmoedigt en maak een supporterslied, alleen of samen met vrienden.",
-                buttons: [{ label: "Start >", path: "overzicht" }]
+                buttons: [
+                  { label: "Start >", path: "overzicht", img: "supporterslied" }
+                ]
               },
               {
                 component: <OverzichtSupporterslied />,
@@ -246,9 +248,21 @@ class App extends Component {
                 uitleg:
                   "Kies naar wie je een kaartje wil sturen. Kies je favoriete design en vul een persoonlijk tekstje in.",
                 buttons: [
-                  { label: "de blokkende student >", path: "student" },
-                  { label: "de vakantieganger >", path: "vakantieganger" },
-                  { label: "de altijd-werker >", path: "werkmens" }
+                  {
+                    label: "de blokkende student >",
+                    path: "student",
+                    img: "student"
+                  },
+                  {
+                    label: "de vakantieganger >",
+                    path: "vakantieganger",
+                    img: "vakantieganger"
+                  },
+                  {
+                    label: "de altijd-werker >",
+                    path: "werkmens",
+                    img: "werkmens"
+                  }
                 ]
               },
               {

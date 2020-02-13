@@ -77,30 +77,30 @@ class Home extends Component {
             <source
               type="image/png"
               srcset="  
-			  assets/img/header_2x_lg1kwn_c_scale,w_158.png 158w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_243.png 243w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_310.png 310w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_372.png 372w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_424.png 424w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_469.png 469w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_512.png 512w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_554.png 554w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_594.png 594w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_632.png 632w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_669.png 669w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_705.png 705w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_737.png 737w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_770.png 770w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_802.png 802w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_834.png 834w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_865.png 865w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_896.png 896w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_926.png 926w,
-			  assets/img/header_2x_lg1kwn_c_scale,w_938.png 938w"
+			  assets/img/header_158.png 158w,
+			  assets/img/header_243.png 243w,
+			  assets/img/header_310.png 310w,
+			  assets/img/header_370.png 370w,
+			  assets/img/header_423.png 423w,
+			  assets/img/header_469.png 469w,
+			  assets/img/header_512.png 512w,
+			  assets/img/header_553.png 553w,
+			  assets/img/header_593.png 593w,
+			  assets/img/header_631.png 631w,
+			  assets/img/header_668.png 668w,
+			  assets/img/header_704.png 704w,
+			  assets/img/header_737.png 737w,
+			  assets/img/header_770.png 770w,
+			  assets/img/header_801.png 801w,
+			  assets/img/header_833.png 833w,
+			  assets/img/header_863.png 863w,
+			  assets/img/header_895.png 895w,
+			  assets/img/header_922.png 922w,
+			  assets/img/header_938.png 938w"
             />
             <img
               className={stylesHome.headerImg}
-              src="..assets/img/header_2x_lg1kwn_c_scale,w_469.png"
+              src="..assets/img/header_469.png"
               alt="sporza_atleten_home"
             />
           </picture>

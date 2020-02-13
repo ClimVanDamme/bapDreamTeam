@@ -30,6 +30,8 @@
 			'info';
 
 		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 }
 
@@ -63,6 +65,8 @@
 			'info';
 
 		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 }
 
@@ -96,6 +100,8 @@
 			'info';
 
 		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 }
 
@@ -129,6 +135,8 @@
 			'info';
 
 		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 }
 
@@ -162,6 +170,8 @@
 			'info';
 
 		justify-items: center;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 }
 

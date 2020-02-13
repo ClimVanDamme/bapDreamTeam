@@ -164,7 +164,7 @@ class Home extends Component {
 							transitionLeave={false}
 						>
 							<HomeChallenge
-								challenge={'Quiz'}
+								challenge={'quiz'}
 								direction={'links'}
 								unlockDate={'7 augustus'}
 							/>

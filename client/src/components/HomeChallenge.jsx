@@ -35,14 +35,23 @@ const HomeChallenge = ({ challenge, unlockDate, direction }) => {
 					</div>
 					<div className={style.timelineLine}>
 						<div className={style.lineOne}></div>
-						{/* <div className={style.lineTwo}></div> */}
 					</div>
 				</div>
 				<div className={style.challengeTextGrid}>
 					<div className={style.challengeTitle}>
-						<TitleMiddle keyValue={uuid()} text={challenge} />
+						{unlockDate === '4 augustus' || unlockDate === '7 augustus' ? (
+							<TitleMiddle keyValue={uuid()} text={'binnenkort'} />
+						) : (
+							<TitleMiddle keyValue={uuid()} text={challenge} />
+						)}
 					</div>
-					<div className={style.challengeBtn}>
+					<div
+						className={
+							unlockDate === '4 augustus' || unlockDate === '7 augustus'
+								? style.hidden
+								: style.challengeBtn
+						}
+					>
 						<Button
 							keyValue={uuid()}
 							color={'secondary'}

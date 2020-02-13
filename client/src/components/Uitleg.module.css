@@ -136,7 +136,7 @@
 		grid-area: content;
 		display: grid;
 		min-height: 100%;
-		grid-template-rows: auto 10vw 1fr;
+		grid-template-rows: auto 6vw 1fr;
 		grid-template-areas:
 			'text'
 			'.'
@@ -149,7 +149,7 @@
 		grid-area: content;
 		display: grid;
 		grid-template-columns: 100%;
-		grid-template-rows: auto 5vw 1fr;
+		grid-template-rows: auto 3vw 1fr;
 		grid-template-areas:
 			'text'
 			'.'

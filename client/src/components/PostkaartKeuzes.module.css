@@ -1,0 +1,92 @@
+@value XS, S, M, L, XL from "../styles/layout.module.css";
+
+::-webkit-scrollbar {
+	width: 0px; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.kaartjesCont {
+	display: flex;
+	max-width: 100%;
+	width: max-content;
+	overflow-x: scroll;
+	margin: 0 auto;
+	margin-top: 5rem;
+}
+
+.kaartjesInput {
+	background-color: white;
+	resize: none;
+}
+
+.kaartjesInput:focus {
+	outline: none;
+}
+
+.kaartjeImg {
+	height: 40rem;
+	width: auto;
+	margin-right: 10rem;
+	filter: grayscale(1);
+	cursor: pointer;
+}
+
+.textInput {
+	width: max-content;
+	margin: 0 auto;
+}
+
+@media XL {
+	.inputCont {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 90rem;
+		align-items: center;
+		margin: 0 auto;
+	}
+}
+
+@media L {
+	.inputCont {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 90rem;
+		align-items: center;
+		margin: 0 auto;
+	}
+}
+
+@media M {
+	.inputCont {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 60rem;
+		align-items: center;
+		margin: 0 auto;
+	}
+}
+
+@media S {
+	.inputCont {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 40rem;
+		align-items: center;
+		margin: 0 auto;
+	}
+}
+
+@media XS {
+	.inputCont {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 90rem;
+		align-items: center;
+		margin: 0 auto;
+	}
+}

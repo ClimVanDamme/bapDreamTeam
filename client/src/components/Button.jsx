@@ -84,24 +84,45 @@ class Button extends Component {
 	};
 
 	render = () => {
-		return (
-			<div
-				key={this.key}
-				className={stylesUI.buttonCont}
-				onMouseOver={this.handleEnter}
-				onMouseLeave={this.renderOutlineStyle}
-			>
-				<Link to={this.link}>
-					<span
-						ref={e => (this.buttonRef = e)}
-						className={`linkEl${this.key} ${stylesUI.button} ${this.btnColor}`}
-					>
-						{this.btnLabel}
-					</span>
-					<Outline style={this.state.divStyle} />
-				</Link>
-			</div>
-		);
+		if (this.link !== 'noLink') {
+			return (
+				<div
+					key={this.key}
+					className={stylesUI.buttonCont}
+					onMouseOver={this.handleEnter}
+					onMouseLeave={this.renderOutlineStyle}
+				>
+					<Link to={this.link}>
+						<span
+							ref={e => (this.buttonRef = e)}
+							className={`linkEl${this.key} ${stylesUI.button} ${this.btnColor}`}
+						>
+							{this.btnLabel}
+						</span>
+						<Outline style={this.state.divStyle} />
+					</Link>
+				</div>
+			);
+		} else {
+			return (
+				<div
+					key={this.key}
+					className={stylesUI.buttonCont}
+					onMouseOver={this.handleEnter}
+					onMouseLeave={this.renderOutlineStyle}
+				>
+					<div>
+						<span
+							ref={e => (this.buttonRef = e)}
+							className={`linkEl${this.key} ${stylesUI.button} ${this.btnColor}`}
+						>
+							{this.btnLabel}
+						</span>
+						<Outline style={this.state.divStyle} />
+					</div>
+				</div>
+			);
+		}
 	};
 }
 

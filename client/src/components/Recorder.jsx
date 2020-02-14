@@ -4,6 +4,12 @@ import { PropTypes, inject, observer } from 'mobx-react';
 import { ROUTES } from '../constants';
 import { Link } from 'react-router-dom';
 
+import styles from '../containers/OverzichtSupporterslied.module.css';
+
+import TitleMiddle from '../components/TitleMiddle';
+import * as uuid from 'uuid/v4';
+import Button from '../components/Button';
+
 const Recorder = ({ supportersliedStore, layer }) => {
 	const {
 		createdMediaRecorder,
@@ -52,62 +58,130 @@ const Recorder = ({ supportersliedStore, layer }) => {
 	const inputAudio = React.createRef();
 
 	return (
-		<>
-			<h1>Neem hier een audiolaag op</h1>
-
-			{audioCurrent.length > 0 ? (
-				<>
-					{supportersliedStore.isRecording === true ? (
-						<>
-							<button onClick={stopRec}>Stop</button>
-							<p>{timeLeft}</p>
-						</>
-					) : (
-						<>
-							<button onClick={initiateRec}>Opnieuw opnemem</button>
-							<Link to={`${ROUTES.supporterslied}/overzicht`}>
-								<button
-									onClick={() => {
-										addAudioLayer(audioCurrent[0]);
-										clearAudio();
-										merge();
-									}}
-								>
-									Laag toevoegen aan compositie
+		<div className={styles.contentGrid}>
+			<div className={styles.content}>
+				<div className={styles.recorderTitle}>
+					<TitleMiddle keyValue={uuid()} text='Supporterslied.' />
+				</div>
+				{audioCurrent.length > 0 ? (
+					<>
+						{supportersliedStore.isRecording === true ? (
+							<div className={styles.isRecording}>
+								<p className={styles.recordingTime}>Tijd over: {timeLeft}</p>
+								<img
+									className={styles.recordingImg}
+									src='../assets/img/micro.png'
+									alt=''
+								/>
+								<button className={styles.stopRec} onClick={stopRec}>
+									<Button
+										keyValue={uuid()}
+										label={'Stop'}
+										color={'secondary'}
+										link={'noLink'}
+									/>
 								</button>
-							</Link>
-							<button
-								onClick={() => {
-									inputAudio.current.play();
-								}}
-							>
-								Herbeluister
-							</button>
-						</>
-					)}
-					{audioCurrent.map(track => (
-						<audio
-							className='audioplayer'
-							src={track}
-							controls
-							ref={inputAudio}
-							key='currentLayer'
-						></audio>
-					))}
-				</>
-			) : (
-				<>
-					{supportersliedStore.isRecording === true ? (
-						<>
-							<button onClick={stopRec}>Stop</button>
-							<p>{timeLeft}</p>
-						</>
-					) : (
-						<button onClick={initiateRec}>Opnemen</button>
-					)}
-				</>
-			)}
-		</>
+							</div>
+						) : (
+							<div className={styles.herbeluisterCont}>
+								<img
+									className={styles.recordingImg}
+									src='../assets/img/micro.png'
+									alt=''
+								/>
+								<div className={styles.herbeluisterButtons}>
+									<div
+										onClick={() => {
+											inputAudio.current.play();
+											console.log('play');
+										}}
+									>
+										<Button
+											keyValue={uuid()}
+											label={'Herbeluister'}
+											color={'secondary'}
+											link={'noLink'}
+										/>
+									</div>
+									<div
+										onClick={() => {
+											initiateRec();
+										}}
+									>
+										<Button
+											keyValue={uuid()}
+											label={'Opnieuw opnemen'}
+											color={'secondary'}
+											link={'noLink'}
+										/>
+									</div>
+									<div
+										onClick={() => {
+											addAudioLayer(audioCurrent[0]);
+											clearAudio();
+											merge();
+										}}
+									>
+										<Button
+											keyValue={uuid()}
+											label={'Fragment toevoegen'}
+											color={'primary'}
+											link={`${ROUTES.supporterslied}/overzicht`}
+										/>
+									</div>
+								</div>
+							</div>
+						)}
+						{audioCurrent.map(track => (
+							<audio
+								className={styles.defaultAudio}
+								src={track}
+								controls
+								ref={inputAudio}
+								key='currentLayer'
+							></audio>
+						))}
+					</>
+				) : (
+					<>
+						{supportersliedStore.isRecording === true ? (
+							<div className={styles.isRecording}>
+								<p className={styles.recordingTime}>Tijd over: {timeLeft}</p>
+								<img
+									className={styles.recordingImg}
+									src='../assets/img/micro.png'
+									alt=''
+								/>
+								<button className={styles.stopRec} onClick={stopRec}>
+									<Button
+										keyValue={uuid()}
+										label={'Stop'}
+										color={'secondary'}
+										link={'noLink'}
+									/>
+								</button>
+							</div>
+						) : (
+							<div className={styles.opnemenCont}>
+								<img
+									className={styles.recordingImg}
+									src='../assets/img/micro.png'
+									alt=''
+								/>
+								<button onClick={initiateRec}>
+									<Button
+										keyValue={uuid()}
+										label={'Opnemen'}
+										color={'primary'}
+										link={`noLink`}
+									/>
+								</button>
+							</div>
+						)}
+					</>
+				)}
+			</div>
+		</div>
 	);
 };
 

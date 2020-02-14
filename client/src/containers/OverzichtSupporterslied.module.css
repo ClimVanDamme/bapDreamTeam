@@ -1,12 +1,321 @@
-.contentContainer {
+@value XS, S, M, L, XL from "../styles/layout.module.css";
+
+@media XL {
+	.contentGrid {
+		display: grid;
+		grid-template-columns: 1fr 80vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media L {
+	.contentGrid {
+		display: grid;
+		grid-template-columns: 1fr 85vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media M {
+	.contentGrid {
+		display: grid;
+		grid-template-columns: 1fr 90vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media S {
+	.contentGrid {
+		display: grid;
+		grid-template-columns: 1fr 95vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media XS {
+	.contentGrid {
+		display: grid;
+		grid-template-columns: 1fr 98vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+.content {
+	grid-area: content;
+	width: auto;
+}
+
+.firstContainer {
+	display: grid;
+	grid-template-rows: auto 10rem auto;
+	grid-template-columns: 100%;
+	grid-template-areas:
+		'title'
+		'.'
+		'add';
+}
+
+.secondContainer {
+	grid-template-rows: auto auto auto auto auto;
+	grid-template-columns: 100%;
+	grid-template-areas:
+		'title'
+		'aantal'
+		'fragmenten'
+		'add'
+		'buttons';
+}
+
+.aantalFragmenten {
+	grid-area: aantal;
+	width: max-content;
+	padding-bottom: 3rem;
+}
+
+.fragmenten {
+	grid-area: fragmenten;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttons {
+	width: max-content;
+	grid-area: buttons;
+	display: flex;
+	margin: 0 auto;
+}
+
+.title {
+	grid-area: title;
+	width: max-content;
+}
+
+.addCont {
+	padding-top: 5rem;
+	padding-bottom: 10rem;
+	grid-area: add;
+	width: max-content;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .roundBtn {
 	width: 5rem;
 	height: 5rem;
+	cursor: pointer;
+	margin-bottom: 1rem;
 }
 
 .titleMiddle {
 	/* composes: .titleMiddle from "../styles/typo.module.css"; */
 	font-size: 7.5rem;
+}
+
+.defaultAudio {
+	visibility: hidden;
+	position: absolute;
+}
+
+.deleteCont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.delete {
+	width: 5rem;
+	height: 6rem;
+	background-image: url('/assets/img/deleteBtn.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.fragmentCont {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 3rem;
+}
+
+.playAll {
+	margin-right: 2rem;
+}
+
+.thirdContainer {
+	grid-template-rows: auto auto auto 3rem auto;
+	grid-template-columns: 100%;
+	grid-template-areas:
+		'title'
+		'aantal'
+		'fragmenten'
+		'.'
+		'buttons';
+}
+
+.customAudio {
+	width: 65vw;
+	max-width: 30rem;
+}
+
+/* recorder */
+
+.isRecording {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 2.5rem auto auto;
+	grid-template-areas:
+		'tijd'
+		'img'
+		'stop';
+	align-items: center;
+}
+
+.recordingTime {
+	grid-area: tijd;
+	margin: 0 auto;
+}
+
+.recordingImg {
+	grid-area: img;
+	width: 30rem;
+	height: 30rem;
+}
+
+.stopRec {
+	grid-area: stop;
+	margin: 0 auto;
+}
+
+.herbeluisterCont {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 2.5rem auto auto;
+	grid-template-areas:
+		'.'
+		'img'
+		'buttons';
+}
+
+.recordingImg {
+	grid-area: img;
+	margin: 0 auto;
+}
+
+@media XL {
+	.herbeluisterButtons {
+		grid-area: buttons;
+		width: max-content;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		height: 18rem;
+		width: 60rem;
+	}
+	.opnemenCont {
+		margin-top: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media L {
+	.herbeluisterButtons {
+		grid-area: buttons;
+		width: max-content;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		height: 18rem;
+		width: 60rem;
+	}
+	.opnemenCont {
+		margin-top: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media M {
+	.herbeluisterButtons {
+		grid-area: buttons;
+		width: max-content;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		height: 18rem;
+		width: 60rem;
+	}
+	.opnemenCont {
+		margin-top: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media S {
+	.herbeluisterButtons {
+		grid-area: buttons;
+		width: max-content;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		height: 18rem;
+		width: max-content;
+	}
+	.opnemenCont {
+		margin-top: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media XS {
+	.herbeluisterButtons {
+		grid-area: buttons;
+		width: max-content;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		height: 18rem;
+		width: max-content;
+	}
+	.opnemenCont {
+		margin-top: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.recorderTitle {
+	margin-bottom: 2rem;
 }

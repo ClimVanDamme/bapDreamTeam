@@ -1,0 +1,50 @@
+@value XS, S, M, L, XL from "../styles/layout.module.css";
+
+@media XL {
+	.contentContainer {
+		display: grid;
+		grid-template-columns: 1fr 80vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media L {
+	.contentContainer {
+		display: grid;
+		grid-template-columns: 1fr 85vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media M {
+	.contentContainer {
+		display: grid;
+		grid-template-columns: 1fr 90vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media S {
+	.contentContainer {
+		display: grid;
+		grid-template-columns: 1fr 95vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+@media XS {
+	.contentContainer {
+		display: grid;
+		grid-template-columns: 1fr 98vw 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: '. content .';
+	}
+}
+
+.content {
+	grid-area: content;
+}

@@ -66,8 +66,10 @@
 	.shareText {
 		grid-area: text;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+		max-width: max-content;
+		margin: 0 auto;
+		margin-bottom: 4rem;
 	}
 
 	.title {
@@ -138,13 +140,15 @@
 	.shareText {
 		grid-area: text;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+		width: max-content;
+		margin: 0 auto;
+		margin-bottom: 4rem;
 	}
-	.shareText p {
+	/* .shareText p {
 		width: 80%;
 		text-align: center;
-	}
+	} */
 
 	.title {
 		grid-area: title;
@@ -216,9 +220,10 @@
 	.shareText {
 		grid-area: text;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 5rem;
+		flex-direction: column;
+		width: max-content;
+		margin: 0 auto;
+		margin-bottom: 4rem;
 	}
 
 	.title {
@@ -293,13 +298,14 @@
 	.shareText {
 		grid-area: text;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 5rem;
+		flex-direction: column;
+		width: max-content;
+		margin: 0 auto;
+		margin-bottom: 4rem;
 	}
-	.shareText p {
+	/* .shareText p {
 		width: 80%;
-	}
+	} */
 
 	.title {
 		grid-area: title;
@@ -372,14 +378,15 @@
 	.shareText {
 		grid-area: text;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 2rem;
+		flex-direction: column;
+		width: max-content;
+		margin: 0 auto;
+		margin-bottom: 4rem;
 	}
-	.shareText p {
+	/* .shareText p {
 		width: 80%;
 		text-align: center;
-	}
+	} */
 
 	.title {
 		grid-area: title;
@@ -387,4 +394,52 @@
 		justify-content: center;
 		align-items: center;
 	}
+}
+
+.shareLink {
+	font-family: 'roboto condensed';
+	font-style: italic;
+	font-size: 1.6rem;
+	font-weight: 300;
+	text-align: center;
+	background-color: transparent;
+	border: none;
+	resize: none;
+	width: 100%;
+	color: transparent;
+}
+
+.areaCont {
+	display: flex;
+	flex-direction: column;
+}
+
+.shareLink:focus {
+	outline: none;
+}
+
+.deelText {
+	display: flex;
+	flex-direction: column;
+}
+
+.textVrienden {
+	margin: 0 auto;
+	width: max-content;
+	text-align: center;
+}
+
+.linkCopyBtn {
+	padding: 1rem 2rem;
+	background-color: var(--blue-color);
+	color: white;
+	width: max-content;
+	border-radius: 30px;
+	font-size: 1.6rem;
+	margin: 0 auto;
+	font-family: 'roboto condensed';
+	font-style: italic;
+	font-weight: 300;
+	cursor: pointer;
+	margin-bottom: 1rem;
 }

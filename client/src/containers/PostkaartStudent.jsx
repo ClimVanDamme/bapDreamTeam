@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react';
 import PostkaartInput from '../components/PostkaartInput';
 import PostkaartKeuzes from '../components/PostkaartKeuzes';
 import Navigation from '../components/Navigation';
+import styles from './PostkaartStudent.module.css';
 
 const PostkaartStudent = ({ postkaartStore }) => {
 	let {
@@ -45,7 +46,6 @@ const PostkaartStudent = ({ postkaartStore }) => {
 			<div>
 				<PostkaartKeuzes doelgroep={'student'} gekozenKaart={gekozenKaart} />
 				<PostkaartInput handleInputChange={handleInputChange} />
-
 				<p>{errorMessage}</p>
 			</div>
 		);
@@ -54,12 +54,11 @@ const PostkaartStudent = ({ postkaartStore }) => {
 	return (
 		<>
 			<Navigation href={'/postkaartje'} />
-			<div>
-				<PostkaartKeuzes doelgroep={'student'} gekozenKaart={gekozenKaart} />
-				<PostkaartInput handleInputChange={handleInputChange} />
-				<Link to={`/postkaartje/resultaat`}>
-					<button onClick={verzend}>Verzend</button>
-				</Link>
+			<div className={styles.contentContainer}>
+				<div className={styles.content}>
+					<PostkaartKeuzes doelgroep={'student'} gekozenKaart={gekozenKaart} />
+					<PostkaartInput handleInputChange={handleInputChange} />
+				</div>
 			</div>
 		</>
 	);

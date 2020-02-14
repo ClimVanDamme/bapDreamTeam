@@ -16,6 +16,15 @@ const Navigation = ({ href }) => {
 						/>
 					</Link>
 				</div>
+				<div>
+					<Link to={'/'}>
+						<img
+							className={styles.logoSporza}
+							src='../assets/img/logo.png'
+							alt=''
+						/>
+					</Link>
+				</div>
 				<div className={styles.homeBtn}>
 					<Link to={'/'}>
 						<span className={styles.text}>Terug naar home</span>

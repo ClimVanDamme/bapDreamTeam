@@ -1,3 +1,8 @@
+.logoSporza {
+	height: 4rem;
+	width: auto;
+}
+
 .navCont {
 	display: flex;
 	justify-content: space-between;

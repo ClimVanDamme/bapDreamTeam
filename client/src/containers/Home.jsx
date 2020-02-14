@@ -41,6 +41,11 @@ class Home extends Component {
 	render = () => {
 		return (
 			<>
+				<img
+					className={stylesHome.logoSporza}
+					src='../assets/img/logo.png'
+					alt=''
+				/>
 				<header ref={this.headerGrid} className={stylesHome.headerGrid}>
 					<div className={stylesHome.headerTitle}>
 						<Title

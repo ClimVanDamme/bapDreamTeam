@@ -1,20 +1,20 @@
 {
-	"short_name": "Onze Spelen",
-	"name": "Onze Spelen",
-	"icons": [
-		{
-			"src": "/assets/img/rsdf-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/assets/img/rsdf-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	],
-	"start_url": "/",
-	"display": "standalone",
-	"theme_color": "#a3fd4e",
-	"background_color": "#fffffa"
+  "short_name": "Onze Spelen",
+  "name": "Onze Spelen",
+  "icons": [
+    {
+      "src": "/assets/img/appIcon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/appIcon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#a3fd4e",
+  "background_color": "#fffffa"
 }

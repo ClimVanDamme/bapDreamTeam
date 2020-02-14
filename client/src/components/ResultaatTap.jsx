@@ -88,46 +88,74 @@ const ResultaatTap = ({ tapwedstrijdStore }) => {
 
 		if (maxTaps === 100) {
 			if (finalTime <= 8.5) {
-				bg.src = '../assets/img/result_400_3stars.png';
+				bg.src = '../assets/img/result_100_3stars.png';
 			}
 
 			if (finalTime > 8.5 && finalTime <= 11) {
-				bg.src = '../assets/img/result_400_2stars.png';
+				bg.src = '../assets/img/result_100_2stars.png';
 			}
 
 			if (finalTime > 11) {
-				bg.src = '../assets/img/result_400_1star.png';
+				bg.src = '../assets/img/result_100_1star.png';
+			}
+		}
+
+		if (maxTaps === 200) {
+			if (finalTime <= 17) {
+				bg.src = '../assets/img/result_200_3stars.png';
 			}
 
-			bg.onload = () => {
-				//ctx.drawImage(bg, 0, 0);
-				scaleToFit(bg, canvas.current, ctx);
+			if (finalTime > 17 && finalTime <= 20) {
+				bg.src = '../assets/img/result_200_2stars.png';
+			}
 
-				ctx.fillStyle = 'white';
-				ctx.strokeStyle = 'black';
-				ctx.lineWidth = 2;
-
-				ctx.font = 'italic bold 50px Roboto Condensed';
-
-				ctx.fillText(
-					`${finalTime} SEC`,
-					parseInt(canvas.current.style.width, 10) / 2 - 75,
-					parseInt(canvas.current.style.height, 10) / 2 - 45
-				);
-				ctx.strokeText(
-					`${finalTime} SEC`,
-					parseInt(canvas.current.style.width, 10) / 2 - 75,
-					parseInt(canvas.current.style.height, 10) / 2 - 45
-				);
-
-				ctx.fill();
-				ctx.stroke();
-
-				renderedImageURL = canvas.current.toDataURL(`image/png`);
-				result.current.setAttribute(`src`, renderedImageURL);
-				download.current.setAttribute(`href`, renderedImageURL);
-			};
+			if (finalTime > 20) {
+				bg.src = '../assets/img/result_200_1star.png';
+			}
 		}
+
+		if (maxTaps === 400) {
+			if (finalTime <= 33) {
+				bg.src = '../assets/img/result_400_3stars.png';
+			}
+
+			if (finalTime > 33 && finalTime <= 38) {
+				bg.src = '../assets/img/result_400_2stars.png';
+			}
+
+			if (finalTime > 38) {
+				bg.src = '../assets/img/result_400_1star.png';
+			}
+		}
+
+		bg.onload = () => {
+			//ctx.drawImage(bg, 0, 0);
+			scaleToFit(bg, canvas.current, ctx);
+
+			ctx.fillStyle = 'white';
+			ctx.strokeStyle = 'black';
+			ctx.lineWidth = 2;
+
+			ctx.font = 'italic bold 50px Roboto Condensed';
+
+			ctx.fillText(
+				`${finalTime} SEC`,
+				parseInt(canvas.current.style.width, 10) / 2 - 75,
+				parseInt(canvas.current.style.height, 10) / 2 - 45
+			);
+			ctx.strokeText(
+				`${finalTime} SEC`,
+				parseInt(canvas.current.style.width, 10) / 2 - 75,
+				parseInt(canvas.current.style.height, 10) / 2 - 45
+			);
+
+			ctx.fill();
+			ctx.stroke();
+
+			renderedImageURL = canvas.current.toDataURL(`image/png`);
+			result.current.setAttribute(`src`, renderedImageURL);
+			download.current.setAttribute(`href`, renderedImageURL);
+		};
 	};
 
 	return (
